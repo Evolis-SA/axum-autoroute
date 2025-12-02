@@ -1,0 +1,32 @@
+# https://embarkstudios.github.io/cargo-deny/cli/init.html
+
+[graph]
+all-features = true
+
+[advisories]
+yanked = "deny"
+unmaintained = "all"
+ignore = [
+    { id = "RUSTSEC-2024-0436", reason = "paste is unmaintained, but still used by utoipa-axum, it is only used for code generation through macro rules, it is probably not an issue that it is not maintained." }
+]
+
+[bans]
+# multiple-versions = "allow"
+wildcards = "deny"
+allow-wildcard-paths = true
+workspace-dependencies.duplicates = "deny"
+workspace-dependencies.include-path-dependencies = true
+workspace-dependencies.unused = "deny"
+
+[licenses]
+allow = [
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "MIT",
+    "Unicode-3.0",
+    "Zlib",
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"

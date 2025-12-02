@@ -9,6 +9,7 @@ use routes::{
 };
 use utoipa::OpenApi;
 
+pub use self::doc::OpenApiDoc;
 use crate::routes::{main_example, response_file, route_info};
 
 pub mod routes;
@@ -27,12 +28,17 @@ impl ApiState {
     }
 }
 
-#[derive(utoipa::OpenApi)]
-#[openapi(info(title = "My test OpenAPI spec"), tags(
-    (name="hello", description="This is the description of the 'hello' tag"),
-    (name="world", description="This is the description of the 'world' tag"),
-))]
-pub struct OpenApiDoc;
+mod doc {
+    // clippy warning emitted by utoipa::OpenApi macro
+    #![expect(clippy::needless_for_each)]
+
+    #[derive(utoipa::OpenApi)]
+    #[openapi(info(title = "My test OpenAPI spec"), tags(
+        (name="hello", description="This is the description of the 'hello' tag"),
+        (name="world", description="This is the description of the 'world' tag"),
+    ))]
+    pub struct OpenApiDoc;
+}
 
 pub fn app() -> AutorouteApiRouter {
     let state = ApiState::new();

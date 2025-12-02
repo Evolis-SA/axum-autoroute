@@ -241,12 +241,11 @@ pub(crate) fn parse_header_name(input: ParseStream) -> syn::Result<SpannedValue<
     };
 
     let header_ident: Ident = input.parse().map_err(|e| header_error(e.span()))?;
-    if header_ident.to_string().is_case(Case::UpperSnake) {
-        if let Ok(header_name) = HeaderName::from_str(&header_ident.to_string().to_case(Case::Kebab)) {
-            if KNOWN_HTTP_HEADERS.contains(&header_name) {
-                return Ok(SpannedValue::new(header_name, header_ident.span()));
-            }
-        }
+    if header_ident.to_string().is_case(Case::UpperSnake)
+        && let Ok(header_name) = HeaderName::from_str(&header_ident.to_string().to_case(Case::Kebab))
+        && KNOWN_HTTP_HEADERS.contains(&header_name)
+    {
+        return Ok(SpannedValue::new(header_name, header_ident.span()));
     }
 
     Err(header_error(header_ident.span()))

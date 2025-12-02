@@ -1,6 +1,13 @@
 [workspace.package]
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.91"
+license = "Apache-2.0"
+license-file = "LICENSE"
+homepage = "https://github.com/Evolis-SA/axum-autoroute"
+repository = "https://github.com/Evolis-SA/axum-autoroute"
+categories = ["web-programming::http-server"]
+keywords = ["rest-api", "openapi", "auto-generate", "documentation", "web", "http", "proc-macro", "axum", "utoipa"]
 
 [workspace]
 resolver = "3"

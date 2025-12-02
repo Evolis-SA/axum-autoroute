@@ -40,7 +40,7 @@ error[E0599]: no method named `into_im_a_teapot` found for type `i32` in the cur
    = help: items from traits can only be used if the trait is in scope
 help: trait `IntoImATeapot` which provides `into_im_a_teapot` is implemented but not in scope; perhaps you want to import it
    |
-1  + use axum_autoroute::status_trait::IntoImATeapot;
+ 1 + use axum_autoroute::status_trait::IntoImATeapot;
    |
 
 error[E0599]: no function or associated item named `into_im_a_teapot` found for type `i32` in the current scope
@@ -52,7 +52,7 @@ error[E0599]: no function or associated item named `into_im_a_teapot` found for 
    = help: items from traits can only be used if the trait is in scope
 help: trait `IntoImATeapot` which provides `into_im_a_teapot` is implemented but not in scope; perhaps you want to import it
    |
-1  + use axum_autoroute::status_trait::IntoImATeapot;
+ 1 + use axum_autoroute::status_trait::IntoImATeapot;
    |
 
 error[E0599]: no method named `into_im_a_teapot` found for type `u32` in the current scope

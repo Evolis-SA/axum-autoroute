@@ -82,12 +82,11 @@ fn check_func_return_type(input: &AutorouteInput) -> syn::Result<()> {
     let mut err_span = func_return.span();
     if let ReturnType::Type(_, box_type) = func_return {
         err_span = box_type.span();
-        if let Type::Path(path) = &**box_type {
-            if let Some(ident) = path.path.get_ident() {
-                if *ident == expected_name {
-                    return Ok(());
-                }
-            }
+        if let Type::Path(path) = &**box_type
+            && let Some(ident) = path.path.get_ident()
+            && *ident == expected_name
+        {
+            return Ok(());
         }
     }
     syn_bail!(err_span, "expecting return type `{expected_name}`")

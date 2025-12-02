@@ -4,7 +4,7 @@
 
 macro_rules! declare_status_traits {
     ( $( ($status:ident, $code:literal) ),+  $(,)?) => {
-        paste::paste! {
+        pastey::paste! {
             $(
                 #[doc = concat!(
                     "Helper trait to return a ",

@@ -26,4 +26,9 @@ error[E0599]: no method named `into_response` found for tuple `(StatusCode, Opti
   --> tests/compile_errors/04a_bad_body_response.rs:20:43
    |
 20 | #[autoroute(GET, path="/home", responses=[(200, body=String, serializer=Option::Some, description="desc")])]
-   |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `(StatusCode, Option<String>)`
+   |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `(StatusCode, Option<std::string::String>)`
+   |
+help: one of the expressions' fields has a method of the same name
+   |
+20 | #[autoroute(GET, path="/home", responses=[0.(200, body=String, serializer=Option::Some, description="desc")])]
+   |                                           ++

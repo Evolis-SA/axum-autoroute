@@ -251,7 +251,7 @@ impl AutorouteAxumExtractor {
                         *KNOWN_EXTRACTOR_TYPES
                     ),
                     crate::args::extractor_attr::ExtractorAttrVariant::BodyExtractor { content_types } => syn_bail!(
-                        content_types.get(0).map(|ct| ct.span()).unwrap_or(Span::call_site()),
+                        content_types.first().map_or(Span::call_site(), SpannedValue::span),
                         "content_type cannot be defined on a known extractor type ({})",
                         *KNOWN_EXTRACTOR_TYPES
                     ),

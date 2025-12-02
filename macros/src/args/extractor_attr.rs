@@ -160,7 +160,7 @@ impl ExtractorAttr {
     pub(crate) fn content_types(&self) -> Vec<String> {
         #[cfg(feature = "unstable_extractor_attr")]
         if let ExtractorAttrVariant::BodyExtractor { content_types } = &self.variant {
-            return content_types.iter().map(|mime| mime.to_string()).collect();
+            return content_types.iter().map(ToString::to_string).collect();
         }
 
         Vec::new()
@@ -193,11 +193,12 @@ impl ExtractorAttr {
     fn as_extractor_attr(attr: &Attribute) -> Option<MetaList> {
         const EXTRACTOR_ATTR_PATHS: [&str; 2] = ["extractor", "autoroute_extractor"];
 
-        if let Meta::List(meta) = &attr.meta {
-            if EXTRACTOR_ATTR_PATHS.contains(&path_as_str(&meta.path).as_str()) {
-                return Some(meta.clone());
-            }
+        if let Meta::List(meta) = &attr.meta
+            && EXTRACTOR_ATTR_PATHS.contains(&path_as_str(&meta.path).as_str())
+        {
+            Some(meta.clone())
+        } else {
+            None
         }
-        None
     }
 }

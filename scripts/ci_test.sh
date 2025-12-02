@@ -4,9 +4,8 @@ set -e
 
 ROOTDIR=`cd $(dirname $0)/..; pwd`
 
-
 opt_features=("--no-default-features" "--all-features")
-crate_dirs=("example" "lib")
+crate_dirs=("example" "lib" "macros")
 
 for opt_feature in ${opt_features[@]}; do
     for crate in ${crate_dirs[@]}; do
@@ -33,8 +32,22 @@ for opt_feature in ${opt_features[@]}; do
     echo
 done
 
-
 echo "################################################################################"
 echo "## Check OpenApiRefs"
 echo "################################################################################"
 python3 "$ROOTDIR/scripts/checkOpenapiRefs.py" $ROOTDIR/example/refs/openapi/*.json
+
+echo "################################################################################"
+echo "## Doc"
+echo "################################################################################"
+./scripts/doc.sh
+
+echo "################################################################################"
+echo "## Format"
+echo "################################################################################"
+./scripts/fmt.sh
+
+echo "################################################################################"
+echo "## Cargo deny"
+echo "################################################################################"
+cargo deny check

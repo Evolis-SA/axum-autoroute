@@ -1,8 +1,15 @@
 [package]
 name = "axum-autoroute"
-version = { workspace = true }
-edition = { workspace = true }
-publish = false
+description = "The goal of this crate is to integrate utoipa tightly with axum to enforce that for each REST route, the code and the openapi documentation of are matching."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+categories.workspace = true
+keywords.workspace = true
+publish = true
 
 [features]
 default = ["default_serializer_json"]
@@ -13,12 +20,12 @@ unstable_extractor_attr = ["axum-autoroute-macros/unstable_extractor_attr"]
 
 [dependencies]
 axum-autoroute-macros = { path = "../macros" }
-axum = { workspace = true }
-utoipa = { workspace = true }
-utoipa-axum = { workspace = true }
-tower = { workspace = true }
-paste = "1.0"
+axum.workspace = true
+utoipa.workspace = true
+utoipa-axum.workspace = true
+tower.workspace = true
+pastey = "0.2.0"
 
 [dev-dependencies]
-serde = { workspace = true }
-tracing = { workspace = true }
+serde.workspace = true
+tracing.workspace = true

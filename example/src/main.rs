@@ -14,7 +14,7 @@ async fn main() {
     init_tracing();
 
     // create the listener
-    let listener = tokio::net::TcpListener::bind(SocketAddr::new(IpAddr::V4(Ipv4Addr::new(127, 0, 0, 1)), 9100))
+    let listener = tokio::net::TcpListener::bind(SocketAddr::new(IpAddr::V4(Ipv4Addr::LOCALHOST), 9100))
         .await
         .expect("failed to start listener");
     let listener_addr = listener.local_addr().unwrap();

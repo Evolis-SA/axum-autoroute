@@ -1,7 +1,10 @@
 [package]
 name = "axum-autoroute-example"
-version = { workspace = true }
-edition = { workspace = true }
+description = "Example HTTP server using axum-autoroute."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
 publish = false
 
 [features]
@@ -13,11 +16,11 @@ tracing = ["axum-autoroute/tracing", "dep:tracing", "dep:tracing-subscriber"]
 axum-autoroute = { path = "../lib", features = ["unstable_extractor_attr"] }
 
 axum = { workspace = true, features = ["macros"] }
-utoipa = { workspace = true }
-utoipa-axum = { workspace = true }
-tower = { workspace = true }
-serde = { workspace = true }
-mime = { workspace = true }
+utoipa.workspace = true
+utoipa-axum.workspace = true
+tower.workspace = true
+serde.workspace = true
+mime.workspace = true
 
 axum_typed_multipart = "0.16.2"
 axum-extra = { version = "0.12.2", features = [
