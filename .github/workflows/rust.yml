@@ -1,0 +1,48 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main", "version-*" ]
+    tags: [ "**" ]
+  pull_request:
+    branches: [ "main", "version-*" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        rust:
+        - 1.91 # MSRV
+        - stable
+        os:
+        - ubuntu-latest
+        - windows-latest
+        - macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install ${{ matrix.rust }} toolchain
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: ${{ matrix.rust }}
+    
+    - name: Build
+      run: ./scripts/build.sh
+    
+    - name: Run tests
+      run: ./scripts/ci_test.sh
+
+    - name: Format
+      run: ./scripts/fmt.sh
+
+    - name: Cargo deny
+      run: cargo deny check
+
+    - name: Doc
+      run: ./scripts/doc.sh
