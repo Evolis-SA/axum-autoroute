@@ -1,0 +1,274 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "My test OpenAPI spec",
+    "description": "",
+    "license": {
+      "name": ""
+    },
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/extractor/custom_body1": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "no extractor attr specified, so not documented in openapi and not traced",
+        "operationId": "custom_body_extractor_1",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_body2": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "content_type defined, documented in openapi and traced",
+        "operationId": "custom_body_extractor_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyJsonStruct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_body3": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "no extractor attr specified, so not documented in openapi but force trace",
+        "operationId": "custom_body_extractor_3",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_body4": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "content_type defined, documented in openapi but force not traced",
+        "operationId": "custom_body_extractor_4",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyJsonStruct"
+              }
+            },
+            "application/yaml": {
+              "schema": {
+                "$ref": "#/components/schemas/MyJsonStruct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_parts1": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "no extractor attr specified, so not documented in openapi and not traced",
+        "operationId": "custom_query_extractor_1",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_parts2": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "into_params specified and true, documented in openapi and traced",
+        "operationId": "custom_query_extractor_2",
+        "parameters": [
+          {
+            "name": "num",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_parts3": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "into_params specified and false, not documented in openapi nor traced",
+        "operationId": "custom_query_extractor_3",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_parts4": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "into_params specified and true, documented in openapi but trace disabled",
+        "operationId": "custom_query_extractor_4",
+        "parameters": [
+          {
+            "name": "num",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extractor/custom_parts5": {
+      "post": {
+        "tags": [
+          "custom extractor"
+        ],
+        "summary": "into_params specified and false, not documented in openapi but trace enabled",
+        "operationId": "custom_query_extractor_5",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MyJsonStruct": {
+        "type": "object",
+        "required": [
+          "txt"
+        ],
+        "properties": {
+          "txt": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "hello",
+      "description": "This is the description of the 'hello' tag"
+    },
+    {
+      "name": "world",
+      "description": "This is the description of the 'world' tag"
+    }
+  ]
+}

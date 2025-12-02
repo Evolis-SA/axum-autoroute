@@ -1,0 +1,85 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/response/file/attachment": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "Returns a file attachment using a `RawResponseBody` and headers.",
+        "operationId": "response_file_attachment",
+        "responses": {
+          "200": {
+            "description": "Return a file as attachment (download)",
+            "headers": {
+              "content-encoding": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/RawResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/response/file/inline": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "Returns an inline file using a `RawResponseBody` and headers.",
+        "operationId": "response_file_inline",
+        "responses": {
+          "200": {
+            "description": "Return an inline file",
+            "headers": {
+              "content-encoding": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/RawResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RawResponseBody": {
+        "type": "string",
+        "format": "binary",
+        "description": "Utility struct wrapping an `axum::body::Body`.\nImplementes `utoipa::ToSchema` for the OpenApi documentation.\n\nSee the `response_file.rs` example for a usage demo.",
+        "contentMediaType": "application/octet-stream"
+      }
+    }
+  }
+}

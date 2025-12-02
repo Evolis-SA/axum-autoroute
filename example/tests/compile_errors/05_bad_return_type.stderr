@@ -1,0 +1,13 @@
+error: autoroute macro failed: expecting return type `MissingReturnResponses`
+ --> tests/compile_errors/05_bad_return_type.rs:3:1
+  |
+3 | #[autoroute(GET, path="/home", responses=[(200, body=String, description="response description")])]
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this error originates in the attribute macro `autoroute` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: autoroute macro failed: expecting return type `BadReturnResponses`
+ --> tests/compile_errors/05_bad_return_type.rs:7:20
+  |
+7 | fn bad_return() -> Test {}
+  |                    ^^^^

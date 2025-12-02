@@ -1,0 +1,8 @@
+DEBUG two_params: axum_autoroute_example::routes::params_path: 'two_params' triggered
+DEBUG two_params: axum_autoroute_example::routes::params_path: * Path: TwoParams { id: 8, name: "test" }
+DEBUG two_params: axum_autoroute_example::routes::params_path: 'two_params' finished -> 200:OK
+DEBUG two_params: axum_autoroute_example::routes::params_path: * Response: TwoParams { id: 8, name: "test" }
+DEBUG two_params: axum_autoroute_example::routes::params_path: 'two_params' triggered
+DEBUG two_params: axum_autoroute_example::routes::params_path: * Path: TwoParams { id: 8, name: "9" }
+DEBUG two_params: axum_autoroute_example::routes::params_path: 'two_params' finished -> 200:OK
+DEBUG two_params: axum_autoroute_example::routes::params_path: * Response: TwoParams { id: 8, name: "9" }

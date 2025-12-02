@@ -1,0 +1,3 @@
+DEBUG response_file_attachment: axum_autoroute_example::routes::response_file: 'response_file_attachment' triggered
+DEBUG response_file_attachment: axum_autoroute_example::routes::response_file: 'response_file_attachment' finished -> 200:OK
+DEBUG response_file_attachment: axum_autoroute_example::routes::response_file: * Response: RawResponseBody(exact_size: 16B)

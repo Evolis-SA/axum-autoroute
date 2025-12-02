@@ -1,0 +1,83 @@
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+ --> tests/compile_errors/04_bad_responses.rs:3:44
+  |
+3 | #[autoroute(GET, path="/home", responses=[()])]
+  |                                            ^
+
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+ --> tests/compile_errors/04_bad_responses.rs:6:44
+  |
+6 | #[autoroute(GET, path="/home", responses=[(10)])]
+  |                                            ^^
+
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+ --> tests/compile_errors/04_bad_responses.rs:9:44
+  |
+9 | #[autoroute(GET, path="/home", responses=[(NotFound)])]
+  |                                            ^^^^^^^^
+
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+  --> tests/compile_errors/04_bad_responses.rs:12:44
+   |
+12 | #[autoroute(GET, path="/home", responses=[(StatusCode::NOT_FOUND)])]
+   |                                            ^^^^^^^^^^
+
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+  --> tests/compile_errors/04_bad_responses.rs:15:49
+   |
+15 | #[autoroute(GET, path="/home", responses=[("200")])]
+   |                                                 ^
+
+error: autoroute macro failed: expected `,`
+  --> tests/compile_errors/04_bad_responses.rs:18:47
+   |
+18 | #[autoroute(GET, path="/home", responses=[(200)])]
+   |                                               ^
+
+error: autoroute macro failed: expected ident `body`: unexpected end of input, expected identifier
+  --> tests/compile_errors/04_bad_responses.rs:21:48
+   |
+21 | #[autoroute(GET, path="/home", responses=[(200,)])]
+   |                                                ^
+
+error: autoroute macro failed: expected `=`
+  --> tests/compile_errors/04_bad_responses.rs:24:53
+   |
+24 | #[autoroute(GET, path="/home", responses=[(200, body)])]
+   |                                                     ^
+
+error: autoroute macro failed: unexpected end of input, expected one of: `for`, parentheses, `fn`, `unsafe`, `extern`, identifier, `::`, `<`, `dyn`, square brackets, `*`, `&`, `!`, `impl`, `_`, lifetime
+  --> tests/compile_errors/04_bad_responses.rs:27:54
+   |
+27 | #[autoroute(GET, path="/home", responses=[(200, body=)])]
+   |                                                      ^
+
+error: autoroute macro failed: expected `=`
+  --> tests/compile_errors/04_bad_responses.rs:30:73
+   |
+30 | #[autoroute(GET, path="/home", responses=[(200, body=String, description)])]
+   |                                                                         ^
+
+error: autoroute macro failed: unexpected end of input, expected string literal
+  --> tests/compile_errors/04_bad_responses.rs:33:74
+   |
+33 | #[autoroute(GET, path="/home", responses=[(200, body=String, description=)])]
+   |                                                                          ^
+
+error: autoroute macro failed: unexpected status code, should be a numeric status code or a constant as described in https://docs.rs/http/latest/http/status/struct.StatusCode.html
+  --> tests/compile_errors/04_bad_responses.rs:36:80
+   |
+36 | #[autoroute(GET, path="/home", responses=[(200, body=String, description=""), ()])]
+   |                                                                                ^
+
+error: autoroute macro failed: expected `,`
+  --> tests/compile_errors/04_bad_responses.rs:41:5
+   |
+41 |     (NOT_FOUND, body=usize, description="desc")
+   |     ^
+
+error: autoroute macro failed: status code already defined in a previous response for this route
+  --> tests/compile_errors/04_bad_responses.rs:47:6
+   |
+47 |     (OK, body=usize, description="desc"),
+   |      ^^

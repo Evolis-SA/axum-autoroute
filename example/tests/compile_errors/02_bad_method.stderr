@@ -1,0 +1,17 @@
+error: autoroute macro failed: unexpected method, should be one of: GET, POST, DELETE, PUT, PATCH, CONNECT, OPTIONS, HEAD, TRACE
+ --> tests/compile_errors/02_bad_method.rs:3:13
+  |
+3 | #[autoroute(UNKNOWN, path="/home")]
+  |             ^^^^^^^
+
+error: autoroute macro failed: unexpected method, should be one of: GET, POST, DELETE, PUT, PATCH, CONNECT, OPTIONS, HEAD, TRACE
+ --> tests/compile_errors/02_bad_method.rs:6:13
+  |
+6 | #[autoroute(get, path="/home")]
+  |             ^^^
+
+error: autoroute macro failed: unexpected method, should be one of: GET, POST, DELETE, PUT, PATCH, CONNECT, OPTIONS, HEAD, TRACE
+ --> tests/compile_errors/02_bad_method.rs:9:13
+  |
+9 | #[autoroute("GET", path="/home")]
+  |             ^^^^^

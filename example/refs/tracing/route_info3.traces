@@ -1,0 +1,8 @@
+DEBUG route_info3: axum_autoroute_example::routes::route_info: 'route_3' triggered
+DEBUG route_info3: axum_autoroute_example::routes::route_info: * Path: PathParam { p: "57" }
+DEBUG route_info3: axum_autoroute_example::routes::route_info: 'route_3' finished -> 200:OK
+DEBUG route_info3: axum_autoroute_example::routes::route_info: * Response: "You called POST:/route/{p} with 57"
+DEBUG route_info3: axum_autoroute_example::routes::route_info: 'route_3' triggered
+DEBUG route_info3: axum_autoroute_example::routes::route_info: * Path: PathParam { p: "test" }
+DEBUG route_info3: axum_autoroute_example::routes::route_info: 'route_3' finished -> 200:OK
+DEBUG route_info3: axum_autoroute_example::routes::route_info: * Response: "You called POST:/route/{p} with test"

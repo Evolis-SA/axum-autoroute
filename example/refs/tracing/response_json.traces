@@ -1,0 +1,3 @@
+DEBUG response_json: axum_autoroute_example::routes::response_json: 'response_json' triggered
+DEBUG response_json: axum_autoroute_example::routes::response_json: 'response_json' finished -> 200:OK
+DEBUG response_json: axum_autoroute_example::routes::response_json: * Response: MyResponse { id: 16, str: "MyResponse", structure: NestedStruct { name: "nested struct", value: 32 }, enum_iterator: [Variant1, Variant2(NestedStruct { name: "variant2 struct", value: "the value of this struct" }), Variant3 { value: 64 }] }

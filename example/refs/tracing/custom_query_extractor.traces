@@ -1,0 +1,17 @@
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_1' triggered
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_1' finished -> 200:OK
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "2"
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_2' triggered
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * CustomQueryExtractor: CustomQueryExtractor(MyQueryStruct { num: 4 })
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_2' finished -> 200:OK
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "4"
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_3' triggered
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_3' finished -> 200:OK
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "6"
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_4' triggered
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_4' finished -> 200:OK
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "8"
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_5' triggered
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * CustomQueryExtractor: CustomQueryExtractor(MyQueryStruct { num: 10 })
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_query_extractor_5' finished -> 200:OK
+DEBUG custom_query_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "10"

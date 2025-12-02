@@ -1,0 +1,5 @@
+DEBUG multiple_path_extractors: axum_autoroute_example::routes::params_path: 'multi_path_extractors' triggered
+DEBUG multiple_path_extractors: axum_autoroute_example::routes::params_path: * Path: ParamsEven { number: 7 }
+DEBUG multiple_path_extractors: axum_autoroute_example::routes::params_path: * Path: TwoParams { id: 9, name: "test" }
+DEBUG multiple_path_extractors: axum_autoroute_example::routes::params_path: 'multi_path_extractors' finished -> 200:OK
+DEBUG multiple_path_extractors: axum_autoroute_example::routes::params_path: * Response: (ParamsEven { number: 7 }, TwoParams { id: 9, name: "test" })

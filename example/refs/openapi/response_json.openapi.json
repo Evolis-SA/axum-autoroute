@@ -1,0 +1,152 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/response/json": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "This route always return the same json struct",
+        "operationId": "response_json",
+        "responses": {
+          "200": {
+            "description": "Always return the same json",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MyResponse": {
+        "type": "object",
+        "description": "documentation of the main struct",
+        "required": [
+          "id",
+          "str",
+          "structure",
+          "enum_iterator"
+        ],
+        "properties": {
+          "enum_iterator": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NestedEnum"
+            },
+            "description": "this field is a list of enum values"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "this is an u32 field",
+            "minimum": 0
+          },
+          "str": {
+            "type": "string",
+            "description": "this is a string field"
+          },
+          "structure": {
+            "$ref": "#/components/schemas/NestedStruct_u32",
+            "description": "this field contains a generic structure"
+          }
+        }
+      },
+      "NestedEnum": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "documentation of the first variant",
+            "enum": [
+              "Variant1"
+            ]
+          },
+          {
+            "type": "object",
+            "description": "documentation of the second variant",
+            "required": [
+              "Variant2"
+            ],
+            "properties": {
+              "Variant2": {
+                "$ref": "#/components/schemas/NestedStruct_String",
+                "description": "documentation of the second variant"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "documentation of the third variant",
+            "required": [
+              "Variant3"
+            ],
+            "properties": {
+              "Variant3": {
+                "type": "object",
+                "description": "documentation of the third variant",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "documentation of the third variant field",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "documentation of the enum"
+      },
+      "NestedStruct_String": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "NestedStruct_u32": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

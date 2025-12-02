@@ -1,0 +1,33 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/state/incr": {
+      "get": {
+        "tags": [
+          "extensions"
+        ],
+        "summary": "Increment a state counter",
+        "operationId": "state_incr",
+        "responses": {
+          "200": {
+            "description": "Return the previous value of the state counter",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}

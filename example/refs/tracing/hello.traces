@@ -1,0 +1,3 @@
+DEBUG hello_route: axum_autoroute_example::routes::hello: 'hello_route' triggered
+DEBUG hello_route: axum_autoroute_example::routes::hello: 'hello_route' finished -> 418:IM_A_TEAPOT
+DEBUG hello_route: axum_autoroute_example::routes::hello: * Response: "Hello World !"

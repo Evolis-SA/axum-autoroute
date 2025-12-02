@@ -1,0 +1,12 @@
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' triggered
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Path: PathParam { p: "2" }
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' finished -> 200:OK
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Response: "You called GET:/route/{p} with 2"
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' triggered
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Path: PathParam { p: "57" }
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' finished -> 200:OK
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Response: "You called GET:/route/{p} with 57"
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' triggered
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Path: PathParam { p: "test" }
+DEBUG route_info2: axum_autoroute_example::routes::route_info: 'route_2' finished -> 200:OK
+DEBUG route_info2: axum_autoroute_example::routes::route_info: * Response: "You called GET:/route/{p} with test"

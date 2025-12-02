@@ -1,0 +1,23 @@
+error: autoroute macro failed: expected `=`
+ --> tests/compile_errors/bad_tags.rs:3:36
+  |
+3 | #[autoroute(GET, path="/home", tags, responses=[(200, body=Test, description="desc")])]
+  |                                    ^
+
+error: autoroute macro failed: expected square brackets
+ --> tests/compile_errors/bad_tags.rs:6:37
+  |
+6 | #[autoroute(GET, path="/home", tags=, responses=[(200, body=Test, description="desc")])]
+  |                                     ^
+
+error: autoroute macro failed: expected string literal
+ --> tests/compile_errors/bad_tags.rs:9:38
+  |
+9 | #[autoroute(GET, path="/home", tags=[27], responses=[(200, body=Test, description="desc")])]
+  |                                      ^^
+
+error: autoroute macro failed: expected `,`
+  --> tests/compile_errors/bad_tags.rs:12:42
+   |
+12 | #[autoroute(GET, path="/home", tags=["a" "b"], responses=[(200, body=Test, description="desc")])]
+   |                                          ^^^

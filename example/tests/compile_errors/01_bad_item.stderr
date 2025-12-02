@@ -1,0 +1,17 @@
+error: autoroute macro failed: expected `fn`
+ --> tests/compile_errors/01_bad_item.rs:4:1
+  |
+4 | struct A {
+  | ^^^^^^
+
+error: autoroute macro failed: expected `fn`
+ --> tests/compile_errors/01_bad_item.rs:9:1
+  |
+9 | enum B {
+  | ^^^^
+
+error: autoroute macro failed: expected `fn`
+  --> tests/compile_errors/01_bad_item.rs:14:1
+   |
+14 | mod C {
+   | ^^^

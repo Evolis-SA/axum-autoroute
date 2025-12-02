@@ -1,0 +1,198 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/query1": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parses two query params from a single structure",
+        "operationId": "query_params1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "A positive number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "str",
+            "in": "query",
+            "description": "A string",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided query params",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryParam1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query2": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parse two params (number then string)",
+        "operationId": "query_params2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "A positive number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "str",
+            "in": "query",
+            "description": "A string",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": false,
+                  "prefixItems": [
+                    {
+                      "type": "object",
+                      "description": "QueryParam1 documentation",
+                      "required": [
+                        "id",
+                        "str"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "A positive number",
+                          "minimum": 0
+                        },
+                        "str": {
+                          "type": "string",
+                          "description": "A string"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query3": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parses an enum",
+        "operationId": "query_params3",
+        "parameters": [
+          {
+            "name": "list",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Val1",
+                "Val2"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameter",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QueryParam1": {
+        "type": "object",
+        "description": "QueryParam1 documentation",
+        "required": [
+          "id",
+          "str"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A positive number",
+            "minimum": 0
+          },
+          "str": {
+            "type": "string",
+            "description": "A string"
+          }
+        }
+      }
+    }
+  }
+}

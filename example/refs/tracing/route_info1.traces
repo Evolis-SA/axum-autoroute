@@ -1,0 +1,3 @@
+DEBUG route_info1: axum_autoroute_example::routes::route_info: 'route_1' triggered
+DEBUG route_info1: axum_autoroute_example::routes::route_info: 'route_1' finished -> 200:OK
+DEBUG route_info1: axum_autoroute_example::routes::route_info: * Response: "You called GET:/route/1"

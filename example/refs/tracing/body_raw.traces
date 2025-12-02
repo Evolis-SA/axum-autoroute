@@ -1,0 +1,8 @@
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: 'body_raw' triggered
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: * Body: Body(UnsyncBoxBody)
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: 'body_raw' finished -> 200:OK
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: * Response: 90
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: 'body_raw' triggered
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: * Body: Body(UnsyncBoxBody)
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: 'body_raw' finished -> 500:INTERNAL_SERVER_ERROR
+DEBUG body_raw: axum_autoroute_example::routes::body_raw: * Response: "Failed to receive body, size greater than 100 bytes"

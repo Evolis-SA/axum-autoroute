@@ -1,0 +1,87 @@
+error[E0599]: no method named `into_not_found` found for type `i32` in the current scope
+ --> tests/compile_errors/bad_response_trait.rs:8:11
+  |
+8 |     12i32.into_not_found()
+  |           ^^^^^^^^^^^^^^ method not found in `i32`
+
+error[E0599]: no function or associated item named `into_not_found` found for type `i32` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:14:10
+   |
+14 |     i32::into_not_found(12i32)
+   |          ^^^^^^^^^^^^^^ function or associated item not found in `i32`
+
+error[E0599]: no variant or associated item named `NotFound` found for enum `WrongStatus3Responses` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:20:28
+   |
+18 |   #[autoroute(GET, path="/hello", responses=[(IM_A_TEAPOT, body=i32, description="hello")])]
+   |  ___________________________________________-
+19 | | pub fn wrong_status_3() -> WrongStatus3Responses {
+   | |___- variant or associated item `NotFound` not found for this enum
+20 |       WrongStatus3Responses::NotFound(12i32)
+   |                              ^^^^^^^^ variant or associated item not found in `WrongStatus3Responses`
+
+error[E0599]: no method named `into_im_a_teapot` found for type `i32` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:26:11
+   |
+26 |       12i32.into_im_a_teapot()
+   |             ^^^^^^^^^^^^^^^^ method not found in `i32`
+   |
+  ::: $WORKSPACE/lib/src/status_trait.rs
+   |
+   | / declare_status_traits!(
+   | |     (CONTINUE, 100),
+   | |     (SWITCHING_PROTOCOLS, 101),
+   | |     (PROCESSING, 102),
+...  |
+   | |     (NETWORK_AUTHENTICATION_REQUIRED, 511),
+   | | );
+   | |_- the method is available for `i32` here
+   |
+   = help: items from traits can only be used if the trait is in scope
+help: trait `IntoImATeapot` which provides `into_im_a_teapot` is implemented but not in scope; perhaps you want to import it
+   |
+1  + use axum_autoroute::status_trait::IntoImATeapot;
+   |
+
+error[E0599]: no function or associated item named `into_im_a_teapot` found for type `i32` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:32:10
+   |
+32 |     i32::into_im_a_teapot(12i32)
+   |          ^^^^^^^^^^^^^^^^ function or associated item not found in `i32`
+   |
+   = help: items from traits can only be used if the trait is in scope
+help: trait `IntoImATeapot` which provides `into_im_a_teapot` is implemented but not in scope; perhaps you want to import it
+   |
+1  + use axum_autoroute::status_trait::IntoImATeapot;
+   |
+
+error[E0599]: no method named `into_im_a_teapot` found for type `u32` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:38:11
+   |
+38 |     12u32.into_im_a_teapot()
+   |           ^^^^^^^^^^^^^^^^ method not found in `u32`
+
+error[E0599]: no function or associated item named `into_im_a_teapot` found for type `u32` in the current scope
+  --> tests/compile_errors/bad_response_trait.rs:44:10
+   |
+44 |     u32::into_im_a_teapot(12u32)
+   |          ^^^^^^^^^^^^^^^^ function or associated item not found in `u32`
+
+error[E0308]: mismatched types
+  --> tests/compile_errors/bad_response_trait.rs:50:34
+   |
+50 |     BadType3Responses::ImATeapot(12u32)
+   |     ---------------------------- ^^^^^ expected `i32`, found `u32`
+   |     |
+   |     arguments to this enum variant are incorrect
+   |
+note: tuple variant defined here
+  --> tests/compile_errors/bad_response_trait.rs:48:44
+   |
+48 | #[autoroute(GET, path="/hello", responses=[(IM_A_TEAPOT, body=i32, description="hello")])]
+   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: change the type of the numeric literal from `u32` to `i32`
+   |
+50 -     BadType3Responses::ImATeapot(12u32)
+50 +     BadType3Responses::ImATeapot(12i32)
+   |

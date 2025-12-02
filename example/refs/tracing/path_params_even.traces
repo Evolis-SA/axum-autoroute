@@ -1,0 +1,8 @@
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: 'path_params_even' triggered
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: * Path: ParamsEven { number: 8 }
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: 'path_params_even' finished -> 200:OK
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: * Response: 8
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: 'path_params_even' triggered
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: * Path: ParamsEven { number: 17 }
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: 'path_params_even' finished -> 406:NOT_ACCEPTABLE
+DEBUG path_params_even: axum_autoroute_example::routes::params_path: * Response: "17 is not even, it is odd !"

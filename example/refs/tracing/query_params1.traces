@@ -1,0 +1,8 @@
+DEBUG query_params1: axum_autoroute_example::routes::params_query: 'query_params1' triggered
+DEBUG query_params1: axum_autoroute_example::routes::params_query: * Query: QueryParam1 { id: 1, str: "test" }
+DEBUG query_params1: axum_autoroute_example::routes::params_query: 'query_params1' finished -> 200:OK
+DEBUG query_params1: axum_autoroute_example::routes::params_query: * Response: QueryParam1 { id: 1, str: "test" }
+DEBUG query_params1: axum_autoroute_example::routes::params_query: 'query_params1' triggered
+DEBUG query_params1: axum_autoroute_example::routes::params_query: * Query: QueryParam1 { id: 7, str: "test2" }
+DEBUG query_params1: axum_autoroute_example::routes::params_query: 'query_params1' finished -> 200:OK
+DEBUG query_params1: axum_autoroute_example::routes::params_query: * Response: QueryParam1 { id: 7, str: "test2" }

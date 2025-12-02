@@ -1,0 +1,3 @@
+DEBUG response_file_inline: axum_autoroute_example::routes::response_file: 'response_file_inline' triggered
+DEBUG response_file_inline: axum_autoroute_example::routes::response_file: 'response_file_inline' finished -> 200:OK
+DEBUG response_file_inline: axum_autoroute_example::routes::response_file: * Response: RawResponseBody(exact_size: 16B)

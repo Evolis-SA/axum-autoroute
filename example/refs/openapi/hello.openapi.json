@@ -1,0 +1,67 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "My test OpenAPI spec",
+    "description": "",
+    "license": {
+      "name": ""
+    },
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/hello": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "summary": "This route always says hello.",
+        "operationId": "hello_route",
+        "responses": {
+          "418": {
+            "description": "Always says hello",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no/description": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "operationId": "no_description",
+        "responses": {
+          "418": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": [
+    {
+      "name": "hello",
+      "description": "This is the description of the 'hello' tag"
+    },
+    {
+      "name": "world",
+      "description": "This is the description of the 'world' tag"
+    }
+  ]
+}

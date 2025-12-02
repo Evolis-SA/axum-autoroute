@@ -1,0 +1,4 @@
+DEBUG body_json: axum_autoroute_example::routes::body_json: 'body_json1' triggered
+DEBUG body_json: axum_autoroute_example::routes::body_json: * Json: MyBodyJson { collection: [Variant1, Variant2(MyStruct { name: "test", value: "value" }), Variant3 { value: 32 }] }
+DEBUG body_json: axum_autoroute_example::routes::body_json: 'body_json1' finished -> 200:OK
+DEBUG body_json: axum_autoroute_example::routes::body_json: * Response: MyBodyJson { collection: [Variant1, Variant2(MyStruct { name: "test", value: "value" }), Variant3 { value: 32 }] }

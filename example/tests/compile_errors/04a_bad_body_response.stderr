@@ -1,0 +1,29 @@
+error: autoroute macro failed: expected one of: content_type, serializer, headers, description, trace
+ --> tests/compile_errors/04a_bad_body_response.rs:9:62
+  |
+9 | #[autoroute(GET, path="/home", responses=[(200, body=String, unknown, description="desc")])]
+  |                                                              ^^^^^^^
+
+error[E0412]: cannot find type `Test` in this scope
+ --> tests/compile_errors/04a_bad_body_response.rs:5:54
+  |
+5 | #[autoroute(GET, path="/home", responses=[(200, body=Test, description="desc")])]
+  |                                                      ^^^^ not found in this scope
+
+error[E0425]: cannot find function, tuple struct or tuple variant `Test` in this scope
+  --> tests/compile_errors/04a_bad_body_response.rs:12:73
+   |
+12 | #[autoroute(GET, path="/home", responses=[(200, body=String, serializer=Test, description="desc")])]
+   |                                                                         ^^^^ not found in this scope
+
+error[E0618]: expected function, found `Option<_>`
+  --> tests/compile_errors/04a_bad_body_response.rs:16:73
+   |
+16 | #[autoroute(GET, path="/home", responses=[(200, body=String, serializer=None, description="desc")])]
+   |                                                                         ^^^^ call expression requires function
+
+error[E0599]: no method named `into_response` found for tuple `(StatusCode, Option<std::string::String>)` in the current scope
+  --> tests/compile_errors/04a_bad_body_response.rs:20:43
+   |
+20 | #[autoroute(GET, path="/home", responses=[(200, body=String, serializer=Option::Some, description="desc")])]
+   |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `(StatusCode, Option<String>)`

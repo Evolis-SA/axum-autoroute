@@ -1,0 +1,157 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/body/json/1": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Parse and return the provided body",
+        "operationId": "body_json1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyBodyJson"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the received body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyBodyJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/body/json/2": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Same as above, but the tracing will be different if the feature is activated because the json extractor is not destructured",
+        "operationId": "body_json2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyBodyJson"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the received body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyBodyJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MyBodyJson": {
+        "type": "object",
+        "description": "The json body type",
+        "required": [
+          "collection"
+        ],
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyEnum"
+            },
+            "description": "A set of different values"
+          }
+        }
+      },
+      "MyEnum": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "documentation of the first variant",
+            "enum": [
+              "Variant1"
+            ]
+          },
+          {
+            "type": "object",
+            "description": "documentation of the second variant",
+            "required": [
+              "Variant2"
+            ],
+            "properties": {
+              "Variant2": {
+                "$ref": "#/components/schemas/MyStruct_String",
+                "description": "documentation of the second variant"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "documentation of the third variant",
+            "required": [
+              "Variant3"
+            ],
+            "properties": {
+              "Variant3": {
+                "type": "object",
+                "description": "documentation of the third variant",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "documentation of the third variant field",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "documentation of the enum"
+      },
+      "MyStruct_String": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

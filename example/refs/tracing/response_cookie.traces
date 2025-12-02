@@ -1,0 +1,8 @@
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: 'response_cookie' triggered
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: * Query: QueryParam { cookie_name: "test", cookie_value: 2 }
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: 'response_cookie' finished -> 200:OK
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: * Response: "previous_cookie=None, new_cookie=(\"test\", \"2\")"
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: 'response_cookie' triggered
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: * Query: QueryParam { cookie_name: "test", cookie_value: 7 }
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: 'response_cookie' finished -> 200:OK
+DEBUG response_cookie: axum_autoroute_example::routes::response_cookie: * Response: "previous_cookie=Some((\"test\", \"2\")), new_cookie=(\"test\", \"7\")"

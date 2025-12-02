@@ -1,0 +1,100 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "paths": {
+    "/body/multipart": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Parse a multipart body",
+        "operationId": "body_multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/MultipartStructure"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a string describing the received body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MultipartEnum": {
+        "type": "string",
+        "description": "A multipart enum\nMust be an enum without any variant field",
+        "enum": [
+          "V1",
+          "V2"
+        ]
+      },
+      "MultipartStructure": {
+        "type": "object",
+        "description": "Multipart structure",
+        "required": [
+          "num",
+          "names",
+          "variants",
+          "file",
+          "files"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "Single file",
+            "contentMediaType": "application/octet-stream"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "description": "Multiple files",
+            "contentMediaType": "application/octet-stream"
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Multiple strings"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A number",
+            "minimum": 0
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultipartEnum"
+            },
+            "description": "Multiple enum variants"
+          }
+        }
+      }
+    }
+  }
+}

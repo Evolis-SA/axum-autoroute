@@ -1,0 +1,17 @@
+error: autoroute macro failed: content_type cannot be defined on a known extractor type (Json, Body, TypedMultipart, Path, Query)
+  --> tests/compile_errors/extractor_attr.rs:22:61
+   |
+22 | fn content_type_on_known_extractor(#[extractor(content_type="application/json")] query: Query<MyQuery>) -> ContentTypeOnKnownExtractorRes...
+   |                                                             ^^^^^^^^^^^^^^^^^^
+
+error: autoroute macro failed: into_params cannot be defined in an extractor attribute containing content_type
+  --> tests/compile_errors/extractor_attr.rs:25:72
+   |
+25 | fn parts_and_body_extractor(#[extractor(content_type=APPLICATION_JSON, into_params=true)] json: CustomJsonExtractor<MyJsonStruct>) -> Con...
+   |                                                                        ^^^^^^^^^^^
+
+error: autoroute macro failed: unexpected mime type, should be a string or one of the constant defined in https://docs.rs/mime/latest/mime/index.html
+  --> tests/compile_errors/extractor_attr.rs:28:50
+   |
+28 | fn invalid_content_type(#[extractor(content_type=[], into_params=true)] json: CustomJsonExtractor<MyJsonStruct>) -> ContentTypeOnKnownExt...
+   |                                                  ^

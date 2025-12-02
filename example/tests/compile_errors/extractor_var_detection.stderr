@@ -1,0 +1,23 @@
+error: autoroute macro failed: unable to determine extractor variable: unexpected extractor pattern, there should be a named variable and if a destructuring pattern is used it should contain a single variable which cannot be a nested destructuring pattern
+  --> tests/compile_errors/extractor_var_detection.rs:12:40
+   |
+12 | fn unable_to_detect_extractor_variable(_: Query<MyQuery>) -> UnableToDetectExtractorVariableResponses {}
+   |                                        ^
+
+error: autoroute macro failed: unable to determine extractor variable: unexpected extractor pattern, there should be a named variable and if a destructuring pattern is used it should contain a single variable which cannot be a nested destructuring pattern
+  --> tests/compile_errors/extractor_var_detection.rs:15:46
+   |
+15 | fn unable_to_detect_extractor_variable(Query(_): Query<MyQuery>) -> E1RespoUnableToDetectExtractorVariableResponsesnses {}
+   |                                              ^
+
+error: autoroute macro failed: unable to determine extractor variable: unexpected extractor pattern, there should be a named variable and if a destructuring pattern is used it should contain a single variable which cannot be a nested destructuring pattern
+  --> tests/compile_errors/extractor_var_detection.rs:18:46
+   |
+18 | fn unable_to_detect_extractor_variable(Query(MyQuery(_var)): Query<MyQuery>) -> UnableToDetectExtractorVariableResponses {}
+   |                                              ^^^^^^^
+
+error: autoroute macro failed: unexpected destructuring pattern, should have a single element
+  --> tests/compile_errors/extractor_var_detection.rs:21:40
+   |
+21 | fn unable_to_detect_extractor_variable(MyExtractor{_text, _num}: MyExtractor) -> UnableToDetectExtractorVariableResponses {}
+   |                                        ^^^^^^^^^^^

@@ -1,0 +1,24 @@
+[package]
+name = "axum-autoroute"
+version = { workspace = true }
+edition = { workspace = true }
+publish = false
+
+[features]
+default = ["default_serializer_json"]
+debugging = ["axum-autoroute-macros/debugging"]
+tracing = ["axum-autoroute-macros/tracing"]
+default_serializer_json = ["axum-autoroute-macros/default_serializer_json"]
+unstable_extractor_attr = ["axum-autoroute-macros/unstable_extractor_attr"]
+
+[dependencies]
+axum-autoroute-macros = { path = "../macros" }
+axum = { workspace = true }
+utoipa = { workspace = true }
+utoipa-axum = { workspace = true }
+tower = { workspace = true }
+paste = "1.0"
+
+[dev-dependencies]
+serde = { workspace = true }
+tracing = { workspace = true }

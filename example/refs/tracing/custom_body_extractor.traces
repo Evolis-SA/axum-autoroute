@@ -1,0 +1,14 @@
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_1' triggered
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_1' finished -> 200:OK
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "text of body extractor No1"
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_2' triggered
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * CustomJsonExtractor: CustomJsonExtractor(MyJsonStruct { txt: "text of body extractor No2" })
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_2' finished -> 200:OK
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "text of body extractor No2"
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_3' triggered
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * CustomJsonExtractor: CustomJsonExtractor(MyJsonStruct { txt: "text of body extractor No3" })
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_3' finished -> 200:OK
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "text of body extractor No3"
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_4' triggered
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: 'custom_body_extractor_4' finished -> 200:OK
+DEBUG custom_body_extractor: axum_autoroute_example::routes::custom_extractor: * Response: "text of body extractor No4"

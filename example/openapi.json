@@ -1,0 +1,1252 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "My test OpenAPI spec",
+    "description": "",
+    "license": {
+      "name": ""
+    },
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/bad/path/{wrong}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "This route tries to extract a params that does not exists, it will fail at runtime",
+        "operationId": "bad_path_param",
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "description": "A number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Always return OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/body/json/1": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Parse and return the provided body",
+        "operationId": "body_json1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyBodyJson"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the received body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyBodyJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/body/json/2": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Same as above, but the tracing will be different if the feature is activated because the json extractor is not destructured",
+        "operationId": "body_json2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MyBodyJson"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the received body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyBodyJson"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/body/multipart": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Parse a multipart body",
+        "operationId": "body_multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/MultipartStructure"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a string describing the received body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/body/raw": {
+      "post": {
+        "tags": [
+          "body"
+        ],
+        "summary": "Receives a raw body and return its bytes size or fail if it is greater than 100 bytes",
+        "operationId": "body_raw",
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the size of the received body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to receive the body",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hello": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "summary": "This route always says hello.",
+        "operationId": "hello_route",
+        "responses": {
+          "418": {
+            "description": "Always says hello",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/multi/path/{id}/{name}/{number}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "This route uses multiple path extractors",
+        "operationId": "multi_path_extractors",
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "description": "A number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return the values extracted from path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": false,
+                  "prefixItems": [
+                    {
+                      "type": "object",
+                      "description": "Path param with a single number",
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "A number",
+                          "minimum": 0
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "name"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "minimum": 0
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/my/route/{id}": {
+      "get": {
+        "summary": "This route uses several different axum extractors.\nIt replies either:\n* An HTTP code 400 (bad request) with an error message if the id is odd.\n* An HTTP code 200 (ok) with a json structure summarizing all the extracted data if the id is even.",
+        "operationId": "my_route",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "text1",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/JsonRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The id is even, return the extracted data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JsonResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The id is odd, return an error message.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no/description": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "operationId": "no_description",
+        "responses": {
+          "418": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/path/r/{name}/{id}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "This route parse two params (string then number)",
+        "operationId": "two_params_reverse",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwoParams"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/path/{id}/{name}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "This route parse two params (number then string)",
+        "operationId": "two_params",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TwoParams"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/path/{number}": {
+      "get": {
+        "tags": [
+          "path"
+        ],
+        "summary": "This route parses a single path params",
+        "operationId": "path_params_even",
+        "parameters": [
+          {
+            "name": "number",
+            "in": "path",
+            "description": "A number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided number if it is even",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32",
+                  "minimum": 0
+                }
+              }
+            }
+          },
+          "406": {
+            "description": "Returns an error if the provided number is odd",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query1": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parses two query params from a single structure",
+        "operationId": "query_params1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "A positive number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "str",
+            "in": "query",
+            "description": "A string",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided query params",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryParam1"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query2": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parse two params (number then string)",
+        "operationId": "query_params2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "A positive number",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "str",
+            "in": "query",
+            "description": "A string",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": false,
+                  "prefixItems": [
+                    {
+                      "type": "object",
+                      "description": "QueryParam1 documentation",
+                      "required": [
+                        "id",
+                        "str"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "A positive number",
+                          "minimum": 0
+                        },
+                        "str": {
+                          "type": "string",
+                          "description": "A string"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "number"
+                      ],
+                      "properties": {
+                        "number": {
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query3": {
+      "get": {
+        "tags": [
+          "query"
+        ],
+        "summary": "This route parses an enum",
+        "operationId": "query_params3",
+        "parameters": [
+          {
+            "name": "list",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Val1",
+                "Val2"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the provided parameter",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/response/cookie": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "Retrieves cookie parameters from query and ask the browser to set the cookie",
+        "operationId": "response_cookie",
+        "parameters": [
+          {
+            "name": "cookie_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cookie_value",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Set the cookie into the browser",
+            "headers": {
+              "set-cookie": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "set the provided cookie"
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/response/file/attachment": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "Returns a file attachment using a `RawResponseBody` and headers.",
+        "operationId": "response_file_attachment",
+        "responses": {
+          "200": {
+            "description": "Return a file as attachment (download)",
+            "headers": {
+              "content-encoding": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/RawResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/response/file/inline": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "Returns an inline file using a `RawResponseBody` and headers.",
+        "operationId": "response_file_inline",
+        "responses": {
+          "200": {
+            "description": "Return an inline file",
+            "headers": {
+              "content-encoding": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "content-type": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/RawResponseBody"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/response/json": {
+      "get": {
+        "tags": [
+          "response"
+        ],
+        "summary": "This route always return the same json struct",
+        "operationId": "response_json",
+        "responses": {
+          "200": {
+            "description": "Always return the same json",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/route/1": {
+      "get": {
+        "tags": [
+          "info"
+        ],
+        "operationId": "route_1",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/route/{p}": {
+      "get": {
+        "tags": [
+          "info"
+        ],
+        "operationId": "route_2",
+        "parameters": [
+          {
+            "name": "p",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "info"
+        ],
+        "operationId": "route_3",
+        "parameters": [
+          {
+            "name": "p",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/state/incr": {
+      "get": {
+        "tags": [
+          "extensions"
+        ],
+        "summary": "Increment a state counter",
+        "operationId": "state_incr",
+        "responses": {
+          "200": {
+            "description": "Return the previous value of the state counter",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32",
+                  "minimum": 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "JsonRequest": {
+        "type": "object",
+        "description": "Data to extract from the json request body",
+        "required": [
+          "text2"
+        ],
+        "properties": {
+          "text2": {
+            "type": "string"
+          }
+        }
+      },
+      "JsonResponse": {
+        "type": "object",
+        "description": "Data to send in the response json body",
+        "required": [
+          "id",
+          "text1",
+          "text2"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "text1": {
+            "type": "string"
+          },
+          "text2": {
+            "type": "string"
+          }
+        }
+      },
+      "MultipartEnum": {
+        "type": "string",
+        "description": "A multipart enum\nMust be an enum without any variant field",
+        "enum": [
+          "V1",
+          "V2"
+        ]
+      },
+      "MultipartStructure": {
+        "type": "object",
+        "description": "Multipart structure",
+        "required": [
+          "num",
+          "names",
+          "variants",
+          "file",
+          "files"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "description": "Single file",
+            "contentMediaType": "application/octet-stream"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            },
+            "description": "Multiple files",
+            "contentMediaType": "application/octet-stream"
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Multiple strings"
+          },
+          "num": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A number",
+            "minimum": 0
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultipartEnum"
+            },
+            "description": "Multiple enum variants"
+          }
+        }
+      },
+      "MyBodyJson": {
+        "type": "object",
+        "description": "The json body type",
+        "required": [
+          "collection"
+        ],
+        "properties": {
+          "collection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyEnum"
+            },
+            "description": "A set of different values"
+          }
+        }
+      },
+      "MyEnum": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "documentation of the first variant",
+            "enum": [
+              "Variant1"
+            ]
+          },
+          {
+            "type": "object",
+            "description": "documentation of the second variant",
+            "required": [
+              "Variant2"
+            ],
+            "properties": {
+              "Variant2": {
+                "$ref": "#/components/schemas/MyStruct_String",
+                "description": "documentation of the second variant"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "documentation of the third variant",
+            "required": [
+              "Variant3"
+            ],
+            "properties": {
+              "Variant3": {
+                "type": "object",
+                "description": "documentation of the third variant",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "documentation of the third variant field",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "documentation of the enum"
+      },
+      "MyResponse": {
+        "type": "object",
+        "description": "documentation of the main struct",
+        "required": [
+          "id",
+          "str",
+          "structure",
+          "enum_iterator"
+        ],
+        "properties": {
+          "enum_iterator": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NestedEnum"
+            },
+            "description": "this field is a list of enum values"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "this is an u32 field",
+            "minimum": 0
+          },
+          "str": {
+            "type": "string",
+            "description": "this is a string field"
+          },
+          "structure": {
+            "$ref": "#/components/schemas/NestedStruct_u32",
+            "description": "this field contains a generic structure"
+          }
+        }
+      },
+      "MyStruct_String": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "NestedEnum": {
+        "oneOf": [
+          {
+            "type": "string",
+            "description": "documentation of the first variant",
+            "enum": [
+              "Variant1"
+            ]
+          },
+          {
+            "type": "object",
+            "description": "documentation of the second variant",
+            "required": [
+              "Variant2"
+            ],
+            "properties": {
+              "Variant2": {
+                "$ref": "#/components/schemas/NestedStruct_String",
+                "description": "documentation of the second variant"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "documentation of the third variant",
+            "required": [
+              "Variant3"
+            ],
+            "properties": {
+              "Variant3": {
+                "type": "object",
+                "description": "documentation of the third variant",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "value": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "documentation of the third variant field",
+                    "minimum": 0
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "documentation of the enum"
+      },
+      "NestedStruct_String": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "NestedStruct_u32": {
+        "type": "object",
+        "description": "this is a struct with a generic type",
+        "required": [
+          "name",
+          "value"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name of the value"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          }
+        }
+      },
+      "QueryParam1": {
+        "type": "object",
+        "description": "QueryParam1 documentation",
+        "required": [
+          "id",
+          "str"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "description": "A positive number",
+            "minimum": 0
+          },
+          "str": {
+            "type": "string",
+            "description": "A string"
+          }
+        }
+      },
+      "RawResponseBody": {
+        "type": "string",
+        "format": "binary",
+        "description": "Utility struct wrapping an `axum::body::Body`.\nImplementes `utoipa::ToSchema` for the OpenApi documentation.\n\nSee the `response_file.rs` example for a usage demo.",
+        "contentMediaType": "application/octet-stream"
+      },
+      "TwoParams": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "hello",
+      "description": "This is the description of the 'hello' tag"
+    },
+    {
+      "name": "world",
+      "description": "This is the description of the 'world' tag"
+    }
+  ]
+}

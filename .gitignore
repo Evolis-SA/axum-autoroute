@@ -1,0 +1,6 @@
+.vs/
+.vscode/
+_*
+*.dll
+*.exe
+target/

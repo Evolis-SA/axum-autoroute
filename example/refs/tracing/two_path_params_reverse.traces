@@ -1,0 +1,8 @@
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: 'two_params_reverse' triggered
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: * Path: TwoParams { id: 16, name: "tt" }
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: 'two_params_reverse' finished -> 200:OK
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: * Response: TwoParams { id: 16, name: "tt" }
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: 'two_params_reverse' triggered
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: * Path: TwoParams { id: 16, name: "32" }
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: 'two_params_reverse' finished -> 200:OK
+DEBUG two_params_reverse: axum_autoroute_example::routes::params_path: * Response: TwoParams { id: 16, name: "32" }

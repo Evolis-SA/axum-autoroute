@@ -1,0 +1,6 @@
+DEBUG state_incr: axum_autoroute_example::routes::state: 'state_incr' triggered
+DEBUG state_incr: axum_autoroute_example::routes::state: 'state_incr' finished -> 200:OK
+DEBUG state_incr: axum_autoroute_example::routes::state: * Response: 0
+DEBUG state_incr: axum_autoroute_example::routes::state: 'state_incr' triggered
+DEBUG state_incr: axum_autoroute_example::routes::state: 'state_incr' finished -> 200:OK
+DEBUG state_incr: axum_autoroute_example::routes::state: * Response: 1
