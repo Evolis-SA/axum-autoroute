@@ -9,7 +9,7 @@ pub fn router() -> AutorouteApiRouter {
 }
 
 #[derive(Debug, Serialize, Deserialize, IntoParams, ToSchema)]
-/// QueryParam1 documentation
+/// `QueryParam1` documentation
 struct QueryParam1 {
     /// A positive number
     id: u32,

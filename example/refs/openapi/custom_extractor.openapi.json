@@ -36,7 +36,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "content_type defined, documented in openapi and traced",
+        "summary": "`content_type` defined, documented in openapi and traced",
         "operationId": "custom_body_extractor_2",
         "requestBody": {
           "content": {
@@ -88,7 +88,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "content_type defined, documented in openapi but force not traced",
+        "summary": "`content_type` defined, documented in openapi but force not traced",
         "operationId": "custom_body_extractor_4",
         "requestBody": {
           "content": {
@@ -145,7 +145,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "into_params specified and true, documented in openapi and traced",
+        "summary": "`into_params` specified and true, documented in openapi and traced",
         "operationId": "custom_query_extractor_2",
         "parameters": [
           {
@@ -177,7 +177,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "into_params specified and false, not documented in openapi nor traced",
+        "summary": "`into_params` specified and false, not documented in openapi nor traced",
         "operationId": "custom_query_extractor_3",
         "responses": {
           "200": {
@@ -198,7 +198,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "into_params specified and true, documented in openapi but trace disabled",
+        "summary": "`into_params` specified and true, documented in openapi but trace disabled",
         "operationId": "custom_query_extractor_4",
         "parameters": [
           {
@@ -230,7 +230,7 @@
         "tags": [
           "custom extractor"
         ],
-        "summary": "into_params specified and false, not documented in openapi but trace enabled",
+        "summary": "`into_params` specified and false, not documented in openapi but trace enabled",
         "operationId": "custom_query_extractor_5",
         "responses": {
           "200": {

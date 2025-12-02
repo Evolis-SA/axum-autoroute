@@ -97,7 +97,7 @@
                   "prefixItems": [
                     {
                       "type": "object",
-                      "description": "QueryParam1 documentation",
+                      "description": "`QueryParam1` documentation",
                       "required": [
                         "id",
                         "str"
@@ -175,7 +175,7 @@
     "schemas": {
       "QueryParam1": {
         "type": "object",
-        "description": "QueryParam1 documentation",
+        "description": "`QueryParam1` documentation",
         "required": [
           "id",
           "str"

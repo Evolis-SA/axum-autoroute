@@ -11,9 +11,13 @@ use utils::error::{syn_bail, syn_error};
 use crate::codegen::route_info::route_info_name;
 use crate::utils::PathList;
 
+#[allow(clippy::doc_markdown)]
 mod args;
+#[allow(clippy::doc_markdown)]
 mod codegen;
+#[allow(clippy::doc_markdown)]
 mod macros_internal;
+#[allow(clippy::doc_markdown)]
 mod utils;
 
 /// Macro to put on top of an axum handler function.
@@ -48,7 +52,7 @@ mod utils;
 ///     * **Must be the first attribute**.
 /// * `body=...` The type returned by this response.
 ///     * **Must be the second attribute**.
-///     * If it's a type path (e.g. `String`, ``MyStructOrEnum`, etc.) it will be the type of the response body.
+///     * If it's a type path (e.g. `String`, `MyStructOrEnum`, etc.) it will be the type of the response body.
 ///     * If a tuple is provided, the last element will be considered as the type of the response body,
 ///       while previous types will be considered as response parts
 ///       (and therefore must implement the [`IntoResponseParts`](axum::response::IntoResponseParts) trait.)
@@ -61,7 +65,7 @@ mod utils;
 ///   with a single element having the type of the response body (a closure, function etc.).
 ///   Axum [`Json`](axum::extract::Json) by default if `default_serializer_json` is enabled.
 /// * `description="..."` A description of this reponse to add to the openapi specification.
-/// * `content_type=...` The content_type of the response as a string (e.g. `"text/plain"`) or as a [`Mime`](mime::Mime) constant (e.g. `TEXT_PLAIN`)
+/// * `content_type=...` The `content_type` of the response as a string (e.g. `"text/plain"`) or as a [`Mime`](mime::Mime) constant (e.g. `TEXT_PLAIN`)
 /// * `headers=[...]` A set of headers returned by this response that should be documented in the openapi specification.
 ///   Each header is enclosed by braces and can have the following fields:
 ///     * The header name as an http [`HeaderName`](axum::http::header) constant (e.g. `SET_COOKIE`, `CONTENT_ENCODING`, etc.)

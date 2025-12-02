@@ -1,5 +1,6 @@
 use std::str::FromStr;
 
+#[expect(clippy::wildcard_imports)]
 use axum::http::header::*;
 use axum::http::{HeaderName, StatusCode};
 use convert_case::{Case, Casing};

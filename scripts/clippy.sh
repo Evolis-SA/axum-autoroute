@@ -4,10 +4,6 @@ ROOTDIR=`cd $(dirname $0)/..; pwd`
 
 CLIPPY_PEDANTIC=( \
     -D"clippy::pedantic" \
-    -A"clippy::doc_markdown" \
-    -A"clippy::wildcard_imports" \
-    -A"clippy::module_name_repetitions" \
-    -A"clippy::struct_excessive_bools" \
     -A"clippy::explicit_deref_methods" \
     -A"clippy::if_not_else" \
 )

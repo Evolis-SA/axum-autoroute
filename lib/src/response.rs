@@ -1,4 +1,4 @@
-//! Utilities to generate `Response` with an associated OpenApi documentation.
+//! Utilities to generate `Response` with an associated `OpenApi` documentation.
 
 use axum::body::{Body, HttpBody};
 use axum::response::IntoResponse;
@@ -7,7 +7,7 @@ use utoipa::ToSchema;
 #[derive(ToSchema)]
 #[schema(value_type = String, format = Binary, content_media_type = "application/octet-stream")]
 /// Utility struct wrapping an `axum::body::Body`.
-/// Implementes `utoipa::ToSchema` for the OpenApi documentation.
+/// Implementes `utoipa::ToSchema` for the `OpenApi` documentation.
 ///
 /// See the `response_file.rs` example for a usage demo.
 pub struct RawResponseBody(Body);

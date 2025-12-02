@@ -40,7 +40,7 @@ async fn custom_body_extractor_1(j: CustomJsonExtractor<MyJsonStruct>) -> Custom
     j.0.txt.into_ok()
 }
 
-/// content_type defined, documented in openapi and traced
+/// `content_type` defined, documented in openapi and traced
 #[autoroute(POST, path="/extractor/custom_body2", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
@@ -64,7 +64,7 @@ async fn custom_body_extractor_3(
     j.0.txt.into_ok()
 }
 
-/// content_type defined, documented in openapi but force not traced
+/// `content_type` defined, documented in openapi but force not traced
 #[autoroute(POST, path="/extractor/custom_body4", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
@@ -98,7 +98,7 @@ async fn custom_query_extractor_1(q: CustomQueryExtractor<MyQueryStruct>) -> Cus
     q.0.num.to_string().into_ok()
 }
 
-/// into_params specified and true, documented in openapi and traced
+/// `into_params` specified and true, documented in openapi and traced
 #[autoroute(POST, path="/extractor/custom_parts2", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
@@ -110,7 +110,7 @@ async fn custom_query_extractor_2(
     q.0.num.to_string().into_ok()
 }
 
-/// into_params specified and false, not documented in openapi nor traced
+/// `into_params` specified and false, not documented in openapi nor traced
 #[autoroute(POST, path="/extractor/custom_parts3", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
@@ -122,7 +122,7 @@ async fn custom_query_extractor_3(
     q.0.num.to_string().into_ok()
 }
 
-/// into_params specified and true, documented in openapi but trace disabled
+/// `into_params` specified and true, documented in openapi but trace disabled
 #[autoroute(POST, path="/extractor/custom_parts4", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
@@ -134,7 +134,7 @@ async fn custom_query_extractor_4(
     q.0.num.to_string().into_ok()
 }
 
-/// into_params specified and false, not documented in openapi but trace enabled
+/// `into_params` specified and false, not documented in openapi but trace enabled
 #[autoroute(POST, path="/extractor/custom_parts5", tags=["custom extractor"],
     responses=[
         (OK, body=String, serializer=NONE),
