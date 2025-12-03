@@ -16,10 +16,11 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         toolchain:
         - stable
-        - 1.85 # MSRV
+        - 1.88 # MSRV
         os:
         - ubuntu-latest
         - ubuntu-latest-arm

@@ -19,7 +19,7 @@ default_serializer_json = ["axum-autoroute-macros/default_serializer_json"]
 unstable_extractor_attr = ["axum-autoroute-macros/unstable_extractor_attr"]
 
 [dependencies]
-axum-autoroute-macros = { path = "../macros" }
+axum-autoroute-macros.workspace = true
 axum.workspace = true
 utoipa.workspace = true
 utoipa-axum.workspace = true

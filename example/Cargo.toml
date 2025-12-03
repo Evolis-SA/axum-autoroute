@@ -13,7 +13,7 @@ debugging = ["axum-autoroute/debugging"]
 tracing = ["axum-autoroute/tracing", "dep:tracing", "dep:tracing-subscriber"]
 
 [dependencies]
-axum-autoroute = { path = "../lib", features = ["unstable_extractor_attr"] }
+axum-autoroute = { workspace = true, features = ["unstable_extractor_attr"] }
 
 axum = { workspace = true, features = ["macros"] }
 utoipa.workspace = true
