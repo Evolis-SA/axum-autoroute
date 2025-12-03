@@ -30,7 +30,7 @@ impl ApiState {
 
 mod doc {
     // clippy warning emitted by utoipa::OpenApi macro
-    #![expect(clippy::needless_for_each)]
+    #![allow(clippy::needless_for_each)]
 
     #[derive(utoipa::OpenApi)]
     #[openapi(info(title = "My test OpenAPI spec"), tags(
