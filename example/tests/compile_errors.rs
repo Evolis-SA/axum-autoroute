@@ -1,6 +1,6 @@
 // Build error messages are dependent on rust version.
 // Disable these tests if we're not on stable.
-#[rustversion::stable]
+#[rustversion::since(1.91)]
 #[test]
 fn compile_tests() {
     let dirpath = std::path::Path::new("tests/compile_errors");
