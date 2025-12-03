@@ -87,4 +87,4 @@ async fn my_route(
 }
 ```
 
-See the [axum-autoroute-example](../example/) crate for more samples.
+See the [axum-autoroute-example](https://github.com/Evolis-SA/axum-autoroute/tree/main/example) crate for more samples.

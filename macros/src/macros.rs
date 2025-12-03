@@ -1,5 +1,6 @@
 //! Axum autoroute proc macros.
 #![warn(missing_docs)]
+#![doc(html_logo_url = "https://raw.githubusercontent.com/Evolis-SA/axum-autoroute/refs/heads/main/axum_autoroute.png")]
 
 use args::AutorouteInput;
 use macros_internal::autoroute_path_internal;

@@ -1,4 +1,5 @@
 #![warn(missing_docs)]
+#![doc(html_logo_url = "https://raw.githubusercontent.com/Evolis-SA/axum-autoroute/refs/heads/main/axum_autoroute.png")]
 #![doc = include_str!("../README.md")]
 //!
 //! # Crate features
