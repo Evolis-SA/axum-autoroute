@@ -25,9 +25,7 @@ mod utils;
 /// It will be used to define several info about the handler (method, path, allowed responses)
 /// and will also extract others from the function signature.
 ///
-/// ```ignore
-#[doc = include_utils::include_md!("../example/src/routes/hello.rs:13:21")]
-/// ```
+/// See the [axum-autoroute-example](https://github.com/Evolis-SA/axum-autoroute/tree/main/example) crate to get some samples.
 ///
 /// # Autoroute fields
 ///
