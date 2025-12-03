@@ -5,7 +5,7 @@ version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
-publish = false
+publish = false # example crate should never be published
 
 [features]
 default = []
@@ -40,3 +40,4 @@ trybuild = "1.0.105"
 common-multipart-rfc7578 = "0.7.0"
 tracing-test = "0.2.5"
 regex = "1.11.1"
+rustversion = "1.0.22"

@@ -6,43 +6,59 @@ on:
     tags: [ "**" ]
   pull_request:
     branches: [ "main", "version-*" ]
+  schedule:
+    - cron: "0 2 * * *"
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        rust:
-        - 1.91 # MSRV
+        toolchain:
         - stable
+        - 1.85 # MSRV
         os:
         - ubuntu-latest
+        - ubuntu-latest-arm
         - windows-latest
         - macos-latest
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install ${{ matrix.rust }} toolchain
+    - name: Install ${{ matrix.toolchain }} toolchain
       uses: dtolnay/rust-toolchain@master
       with:
-        toolchain: ${{ matrix.rust }}
+        toolchain: ${{ matrix.toolchain }}
     
     - name: Build
-      run: ./scripts/build.sh
+      run: bash ./scripts/build.sh
     
     - name: Run tests
-      run: ./scripts/ci_test.sh
+      run: bash ./scripts/ci_test.sh
 
+  doc:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build doc
+      run: bash ./scripts/doc.sh
+
+  format:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
     - name: Format
-      run: ./scripts/fmt.sh
+      run: bash ./scripts/fmt.sh
 
+  deny:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: EmbarkStudios/cargo-deny-action@v2
     - name: Cargo deny
       run: cargo deny check
 
-    - name: Doc
-      run: ./scripts/doc.sh

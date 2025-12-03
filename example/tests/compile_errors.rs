@@ -1,12 +1,12 @@
-use std::fs;
-use std::path::Path;
-
+// Build error messages are dependent on rust version.
+// Disable these tests if we're not on stable.
+#[rustversion::stable]
 #[test]
 fn compile_tests() {
-    let dirpath = Path::new("tests/compile_errors");
+    let dirpath = std::path::Path::new("tests/compile_errors");
     assert!(dirpath.is_dir(), "compile test folder does not exists");
 
-    let subelts = fs::read_dir(dirpath).expect("failed to list test folder content");
+    let subelts = std::fs::read_dir(dirpath).expect("failed to list test folder content");
 
     // see https://docs.rs/trybuild/latest/trybuild/
     let tests = trybuild::TestCases::new();
