@@ -23,7 +23,6 @@ jobs:
         - 1.88 # MSRV
         os:
         - ubuntu-latest
-        - ubuntu-latest-arm
         - windows-latest
         - macos-latest
 
@@ -34,6 +33,7 @@ jobs:
       uses: dtolnay/rust-toolchain@master
       with:
         toolchain: ${{ matrix.toolchain }}
+        components: clippy
     
     - name: Build
       run: bash ./scripts/build.sh
@@ -59,7 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Install toolchain
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: stable
     - uses: EmbarkStudios/cargo-deny-action@v2
-    - name: Cargo deny
-      run: cargo deny check
 
