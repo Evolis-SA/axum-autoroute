@@ -1,0 +1,23 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout.
+*.bat text eol=crlf
+*.c text
+*.cmake text
+*.cpp text
+*.example text
+*.h text
+*.java text
+*.json text
+*.md text
+*.rs text
+*.rst text
+*.txt text
+*.toml text
+*.css text
+*.properties text
+*.sh eol=lf
+
+Cargo.lock text
