@@ -77,7 +77,7 @@
       "RawResponseBody": {
         "type": "string",
         "format": "binary",
-        "description": "Utility struct wrapping an `axum::body::Body`.\nImplementes `utoipa::ToSchema` for the `OpenApi` documentation.\n\nSee the `response_file.rs` example for a usage demo.",
+        "description": "Utility struct wrapping an `axum::body::Body`.\nImplements `utoipa::ToSchema` for the `OpenApi` documentation.\n\nSee the `response_file.rs` example for a usage demo.",
         "contentMediaType": "application/octet-stream"
       }
     }

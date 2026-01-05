@@ -2,9 +2,10 @@
   "openapi": "3.1.0",
   "info": {
     "title": "My test OpenAPI spec",
-    "description": "",
+    "description": "Example HTTP server using axum-autoroute.",
     "license": {
-      "name": ""
+      "name": "Apache-2.0",
+      "identifier": "Apache-2.0"
     },
     "version": "0.1.0"
   },
@@ -591,7 +592,7 @@
                   "prefixItems": [
                     {
                       "type": "object",
-                      "description": "QueryParam1 documentation",
+                      "description": "`QueryParam1` documentation",
                       "required": [
                         "id",
                         "str"
@@ -1196,7 +1197,7 @@
       },
       "QueryParam1": {
         "type": "object",
-        "description": "QueryParam1 documentation",
+        "description": "`QueryParam1` documentation",
         "required": [
           "id",
           "str"
@@ -1217,7 +1218,7 @@
       "RawResponseBody": {
         "type": "string",
         "format": "binary",
-        "description": "Utility struct wrapping an `axum::body::Body`.\nImplementes `utoipa::ToSchema` for the OpenApi documentation.\n\nSee the `response_file.rs` example for a usage demo.",
+        "description": "Utility struct wrapping an `axum::body::Body`.\nImplements `utoipa::ToSchema` for the `OpenApi` documentation.\n\nSee the `response_file.rs` example for a usage demo.",
         "contentMediaType": "application/octet-stream"
       },
       "TwoParams": {
