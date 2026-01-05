@@ -1,5 +1,5 @@
 use axum::Json;
-use axum_autoroute::status_trait::IntoOk;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 use serde::{Deserialize, Serialize};
 use utoipa::ToSchema;

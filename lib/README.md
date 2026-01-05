@@ -23,7 +23,7 @@ and then copy the fixed content in here.
 
 ```rust
 use axum::extract::{Json, Path, Query};
-use axum_autoroute::status_trait::IntoBadRequest;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 
 pub fn router() -> AutorouteApiRouter {

@@ -2,7 +2,7 @@ use std::sync::Arc;
 use std::sync::atomic::Ordering;
 
 use axum::extract::State;
-use axum_autoroute::status_trait::IntoOk;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_router};
 
 use crate::ApiState;

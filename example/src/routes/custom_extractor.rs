@@ -1,6 +1,6 @@
 use axum::Json;
 use axum::extract::{FromRequest, FromRequestParts, Query};
-use axum_autoroute::status_trait::IntoOk;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 use serde::Deserialize;
 use utoipa::{IntoParams, OpenApi, ToSchema};

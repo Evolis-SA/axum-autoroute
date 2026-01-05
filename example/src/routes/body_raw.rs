@@ -1,5 +1,5 @@
 use axum::body::{Body, to_bytes};
-use axum_autoroute::status_trait::{IntoInternalServerError, IntoOk};
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 
 pub fn router() -> AutorouteApiRouter {

@@ -1,5 +1,5 @@
 use axum::extract::Path;
-use axum_autoroute::status_trait::IntoOk;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers, route_info};
 use serde::Deserialize;
 use utoipa::IntoParams;

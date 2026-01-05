@@ -1,5 +1,5 @@
 use axum::body::Bytes;
-use axum_autoroute::status_trait::IntoOk;
+use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_router};
 use axum_typed_multipart::{FieldData, TryFromField, TryFromMultipart, TypedMultipart};
 use utoipa::ToSchema;
