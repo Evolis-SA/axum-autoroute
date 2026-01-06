@@ -7,7 +7,7 @@ license-file = "LICENSE"
 homepage = "https://github.com/Evolis-SA/axum-autoroute"
 repository = "https://github.com/Evolis-SA/axum-autoroute"
 categories = ["web-programming::http-server"]
-keywords = ["rest-api", "openapi", "auto-generate", "documentation", "web", "http", "proc-macro", "axum", "utoipa"]
+keywords = ["rest-api", "openapi", "http", "axum", "utoipa"]
 
 [workspace]
 resolver = "3"
