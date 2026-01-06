@@ -13,6 +13,9 @@ keywords = ["rest-api", "openapi", "auto-generate", "documentation", "web", "htt
 resolver = "3"
 members = ["macros", "lib", "example"]
 
+[workspace.metadata.publish]
+order = ["macros", "lib"]
+
 [workspace.dependencies]
 axum-autoroute = { version="0.1.0", path = "./lib" }
 axum-autoroute-macros = { version="0.1.0", path = "./macros" }
