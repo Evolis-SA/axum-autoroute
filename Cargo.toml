@@ -1,5 +1,5 @@
 [workspace.package]
-version = "0.1.0" # REMINDER: when changing this version, you should also change the dependencies versions below
+version = "0.1.0"
 edition = "2024"
 rust-version = "1.88"
 license = "Apache-2.0"
