@@ -1,6 +1,6 @@
 [package]
 name = "axum-autoroute"
-description = "The goal of this crate is to integrate utoipa tightly with axum to enforce that for each REST route, the code and the openapi documentation of are matching."
+description = "The goal of this crate is to integrate utoipa tightly with axum to enforce that for each REST route, the code and the openapi documentation are matching."
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
