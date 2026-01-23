@@ -4,7 +4,7 @@ error: autoroute macro failed: expected one of: content_type, serializer, header
 9 | #[autoroute(GET, path="/home", responses=[(200, body=String, unknown, description="desc")])]
   |                                                              ^^^^^^^
 
-error[E0412]: cannot find type `Test` in this scope
+error[E0425]: cannot find type `Test` in this scope
  --> tests/compile_errors/04a_bad_body_response.rs:5:54
   |
 5 | #[autoroute(GET, path="/home", responses=[(200, body=Test, description="desc")])]
