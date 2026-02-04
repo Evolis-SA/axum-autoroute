@@ -33,7 +33,7 @@ mod doc {
     #![allow(clippy::needless_for_each)]
 
     #[derive(utoipa::OpenApi)]
-    #[openapi(info(title = "My test OpenAPI spec"), tags(
+    #[openapi(info(title = "My test OpenAPI spec", version = "A.B.C"), tags(
         (name="hello", description="This is the description of the 'hello' tag"),
         (name="world", description="This is the description of the 'world' tag"),
     ))]
