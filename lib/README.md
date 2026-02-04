@@ -1,3 +1,9 @@
+[![Crates.io](https://img.shields.io/crates/v/axum-autoroute.svg)](https://crates.io/crates/axum-autoroute)
+[![Documentation](https://docs.rs/axum-autoroute/badge.svg)](https://docs.rs/axum-autoroute)
+[![License](https://img.shields.io/crates/l/axum-autoroute.svg)](https://github.com/Evolis-SA/axum-autoroute/blob/main/LICENSE)
+[![Build Status](https://github.com/Evolis-SA/axum-autoroute/actions/workflows/rust.yml/badge.svg)](https://github.com/Evolis-SA/axum-autoroute/actions)
+[![Downloads](https://img.shields.io/crates/d/axum-autoroute.svg)](https://crates.io/crates/axum-autoroute)
+
 # Axum Autoroute
 
 The goal of this crate is to integrate [utoipa](https://docs.rs/utoipa/latest/utoipa/) tightly with [axum](https://docs.rs/axum/latest/axum/) to enforce that for each REST route, the code and the openapi documentation are matching.
