@@ -24,5 +24,5 @@ Copyright 2025 Evolis Card Printer (see [COPYRIGHT](COPYRIGHT)).
 The Evolis Card Printer SDK team:
 * A. Jacquet ([@ajacquet-evolis](https://github.com/ajacquet-evolis))
 * S. Joubert ([@sjoubert49](https://github.com/sjoubert49))
-* S. Renaud
-* R. Toin
+* S. Renaud ([@srenaud-evolis](https://github.com/srenaud-evolis))
+* R. Toin ([@rtoin-evolis](https://github.com/rtoin-evolis))
