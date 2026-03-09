@@ -23,19 +23,13 @@ error[E0599]: no variant or associated item named `NotFound` found for enum `Wro
 error[E0599]: no method named `into_im_a_teapot` found for type `i32` in the current scope
   --> tests/compile_errors/bad_response_trait.rs:26:11
    |
-26 |       12i32.into_im_a_teapot()
-   |             ^^^^^^^^^^^^^^^^ method not found in `i32`
+26 |     12i32.into_im_a_teapot()
+   |           ^^^^^^^^^^^^^^^^ method not found in `i32`
    |
   ::: $WORKSPACE/lib/src/status_trait.rs
    |
-   | / declare_status_traits!(
-   | |     (CONTINUE, 100),
-   | |     (SWITCHING_PROTOCOLS, 101),
-   | |     (PROCESSING, 102),
-...  |
-   | |     (NETWORK_AUTHENTICATION_REQUIRED, 511),
-   | | );
-   | |_- the method is available for `i32` here
+   |                     fn [<into_ $status:lower>](self) -> R;
+   |                        ----------------------- the method is available for `i32` here
    |
    = help: items from traits can only be used if the trait is in scope
 help: trait `IntoImATeapot` which provides `into_im_a_teapot` is implemented but not in scope; perhaps you want to import it
