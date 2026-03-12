@@ -62,14 +62,11 @@ where
 
     /// Add several new public routes.
     #[must_use]
-    pub fn with_pub_routes<I>(mut self, method_routers: I) -> Self
+    pub fn with_pub_routes<I>(self, method_routers: I) -> Self
     where
         I: IntoIterator<Item = UtoipaMethodRouter<S>>,
     {
-        for method_router in method_routers {
-            self.pub_router = self.pub_router.routes(method_router);
-        }
-        self
+        method_routers.into_iter().fold(self, Self::with_pub_route)
     }
 
     /// Add a new private route.
@@ -81,14 +78,11 @@ where
 
     /// Add several new private routes.
     #[must_use]
-    pub fn with_priv_routes<I>(mut self, method_routers: I) -> Self
+    pub fn with_priv_routes<I>(self, method_routers: I) -> Self
     where
         I: IntoIterator<Item = UtoipaMethodRouter<S>>,
     {
-        for method_router in method_routers {
-            self.pub_router = self.pub_router.routes(method_router);
-        }
-        self
+        method_routers.into_iter().fold(self, Self::with_priv_route)
     }
 
     /// Return an `axum::Router` containing all the routes (public and private).
