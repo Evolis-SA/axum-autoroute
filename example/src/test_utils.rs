@@ -146,16 +146,16 @@ fn save_wip_content(ref_filename: &str, content: &str) -> Result<(), String> {
     let gitignore = wip_dir.join(".gitignore");
     let wip_content = wip_dir.join(ref_filename);
 
-    if !wip_dir.exists() {
-        if let Err(e) = fs::create_dir(wip_dir.clone()) {
-            return Err(format!("failed to create directory {wip_dir:?}: {e}"));
-        }
+    if !wip_dir.exists()
+        && let Err(e) = fs::create_dir(&wip_dir)
+    {
+        return Err(format!("failed to create directory {wip_dir:?}: {e}"));
     }
 
-    if let Err(e) = fs::write(gitignore.clone(), "*") {
+    if let Err(e) = fs::write(&gitignore, "*") {
         return Err(format!("failed to create and write {wip_dir:?}: {e}"));
     }
-    if let Err(e) = fs::write(wip_content.clone(), content) {
+    if let Err(e) = fs::write(&wip_content, content) {
         return Err(format!("failed to create and write {wip_dir:?}: {e}"));
     }
     println!("reference file written at {wip_content:?}");

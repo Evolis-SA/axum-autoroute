@@ -1,0 +1,112 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "My test OpenAPI spec",
+    "description": "Example HTTP server using axum-autoroute.",
+    "license": {
+      "name": "Apache-2.0",
+      "identifier": "Apache-2.0"
+    },
+    "version": "A.B.C"
+  },
+  "paths": {
+    "/hello": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "summary": "This route always says hello.",
+        "operationId": "hello_route",
+        "responses": {
+          "418": {
+            "description": "Always says hello",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no/description": {
+      "get": {
+        "tags": [
+          "hello",
+          "world"
+        ],
+        "operationId": "no_description",
+        "responses": {
+          "418": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/secret/bonjour": {
+      "get": {
+        "tags": [
+          "bonjour",
+          "secret"
+        ],
+        "summary": "This route is hidden.",
+        "operationId": "bonjour_secret_route",
+        "responses": {
+          "418": {
+            "description": "Always says bonjour",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/secret/bye": {
+      "get": {
+        "tags": [
+          "bye",
+          "secret"
+        ],
+        "summary": "This route is hidden.",
+        "operationId": "bye_secret_route",
+        "responses": {
+          "418": {
+            "description": "Always says bye",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": [
+    {
+      "name": "hello",
+      "description": "This is the description of the 'hello' tag"
+    },
+    {
+      "name": "world",
+      "description": "This is the description of the 'world' tag"
+    }
+  ]
+}

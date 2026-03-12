@@ -71,12 +71,12 @@ mod test {
     async fn body_multipart() {
         let (router, _) = router().split_for_parts();
 
-        let file_text = "this is the content of the text file";
+        let single_file_text = "this is the content of the text file";
         let files_text = ["first file content", "second file content"];
 
         let mut form = Form::default();
         form.add_text("num", "32");
-        form.add_reader_file_with_mime("file", Cursor::new(file_text), "text_file.txt", mime::TEXT_PLAIN);
+        form.add_reader_file_with_mime("file", Cursor::new(single_file_text), "text_file.txt", mime::TEXT_PLAIN);
         // each variant field will be an entry in the vector
         for variant in ["V2", "V1", "V2"] {
             form.add_text("variants", variant);

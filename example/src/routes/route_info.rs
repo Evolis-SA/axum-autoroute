@@ -111,11 +111,12 @@ mod test {
 
     #[test]
     fn get_info() {
+        use super::ROUTE_2_ROUTE_INFO;
+
         let info1 = route_info!(super::route_1);
         assert_eq!(info1.method(), Method::GET);
         assert_eq!(info1.path(), "/route/1");
 
-        use super::ROUTE_2_ROUTE_INFO;
         let info2 = route_info!(route_2);
         assert_eq!(info2.method(), Method::GET);
         assert_eq!(info2.path(), "/route/{p}");
