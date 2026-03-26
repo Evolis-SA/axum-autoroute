@@ -17,8 +17,8 @@ members = ["macros", "lib", "example"]
 order = ["macros", "lib"]
 
 [workspace.dependencies]
-axum-autoroute = { path = "./lib" }
-axum-autoroute-macros = { path = "./macros" }
+axum-autoroute = { version="0.2", path = "./lib" }
+axum-autoroute-macros = { version="0.2", path = "./macros" }
 
 axum = { version = "0.8.4" }
 utoipa = { version = "5.3.1", features = ["axum_extras"] }
