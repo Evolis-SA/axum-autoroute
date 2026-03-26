@@ -14,6 +14,7 @@ use utoipa_axum::router::{OpenApiRouter, UtoipaMethodRouter};
 /// A wrapper of `utoipa_axum::router::OpenApiRouter`
 /// allowing to separate public and private (not appearing in the openapi specification) routes.
 /// If unspecified, the state of the router will be the unit type.
+#[derive(Clone)]
 pub struct AutorouteApiRouter<S = ()>
 where
     S: Send + Sync + Clone + 'static, // axum State
