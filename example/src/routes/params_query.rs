@@ -1,5 +1,4 @@
 use axum::extract::Query;
-use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 use serde::{Deserialize, Serialize};
 use utoipa::{IntoParams, ToSchema};

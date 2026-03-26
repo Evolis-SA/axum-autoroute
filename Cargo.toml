@@ -1,5 +1,5 @@
 [workspace.package]
-version = "0.1.5"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.88"
 license = "Apache-2.0"
@@ -17,8 +17,8 @@ members = ["macros", "lib", "example"]
 order = ["macros", "lib"]
 
 [workspace.dependencies]
-axum-autoroute = { version="0.1.0", path = "./lib" }
-axum-autoroute-macros = { version="0.1.0", path = "./macros" }
+axum-autoroute = { version="0.2", path = "./lib" }
+axum-autoroute-macros = { version="0.2", path = "./macros" }
 
 axum = { version = "0.8.4" }
 utoipa = { version = "5.3.1", features = ["axum_extras"] }

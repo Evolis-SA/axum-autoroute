@@ -15,7 +15,6 @@ pub use axum_autoroute_macros::{autoroute, method_router, method_routers, route_
 pub use route_info::RouteInfo;
 pub use router::AutorouteApiRouter;
 
-pub mod prelude;
 pub mod response;
 mod route_info;
 mod router;

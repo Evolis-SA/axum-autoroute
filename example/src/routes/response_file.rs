@@ -1,6 +1,5 @@
 use axum::http::header::{CONTENT_DISPOSITION, CONTENT_TYPE};
 use axum::http::{HeaderMap, HeaderValue};
-use axum_autoroute::prelude::*;
 use axum_autoroute::response::RawResponseBody;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 

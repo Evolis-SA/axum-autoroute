@@ -4,3 +4,4 @@ pub(crate) mod route_info;
 pub(crate) mod tracing;
 pub(crate) mod trait_checkers;
 pub(crate) mod utoipa;
+pub(crate) mod trait_use;

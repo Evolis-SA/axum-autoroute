@@ -1,4 +1,3 @@
-use axum_autoroute::prelude::*;
 use axum_autoroute::{AutorouteApiRouter, autoroute, method_routers};
 use utoipa::OpenApi;
 

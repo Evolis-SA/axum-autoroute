@@ -97,7 +97,7 @@ pub(crate) fn response_variant_variables(resp: &AutorouteResponse) -> (Ident, Ve
 }
 
 /// Name of the associated status code reponse trait (e.g. `IntoNotFound`)
-fn response_into_status_trait_name(resp: &AutorouteResponse) -> Ident {
+pub fn response_into_status_trait_name(resp: &AutorouteResponse) -> Ident {
     Ident::new(
         &format!("Into{}", resp.status_code.to_string().to_case(Case::Pascal)),
         resp.status_code.span(),

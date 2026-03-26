@@ -1,3 +1,5 @@
+#![allow(unused_imports)]
+
 use axum_autoroute::autoroute;
 use axum;
 use utoipa;

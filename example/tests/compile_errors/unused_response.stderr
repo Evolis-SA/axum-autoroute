@@ -1,0 +1,11 @@
+error: unused import: `NOT_FOUND`
+ --> tests/compile_errors/unused_response.rs:6:6
+  |
+6 |     (NOT_FOUND, body=String, description="desc"),
+  |      ^^^^^^^^^
+  |
+note: the lint level is defined here
+ --> tests/compile_errors/unused_response.rs:1:9
+  |
+1 | #![deny(unused_imports)] // make it crash on warnings
+  |         ^^^^^^^^^^^^^^
