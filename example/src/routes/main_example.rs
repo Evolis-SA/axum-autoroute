@@ -46,17 +46,16 @@ async fn my_route(
     Query(query): Query<QueryParam>, // query extraction
     Json(json): Json<JsonRequest>,   // json body extraction
 ) -> MyRouteResponses {
-    if path.id % 2 == 0 {
+    if path.id % 2 != 0 {
+        // a response can be returned by using an into_... function corresponding to the http return code
+        // (here `IntoBadRequest` which exposes the functions `into_bad_request` and `into_400`)
+        format!("The provided id ({}) is odd.", path.id).into_bad_request()
+    } else {
         let resp = JsonResponse {
             id: path.id,
             text1: query.text1,
             text2: json.text2,
-        };
-        // a response can either be returned by using directly the variant of the generated enum
-        MyRouteResponses::Ok(resp)
-    } else {
-        // or by using traits exposed by axum_autoroute for each HTTP return code
-        // (here `IntoBadRequest` which exposes the functions `into_bad_request` and `into_400`)
-        format!("The provided id ({}) is odd.", path.id).into_bad_request()
+        };        
+        resp.into_200()
     }
 }

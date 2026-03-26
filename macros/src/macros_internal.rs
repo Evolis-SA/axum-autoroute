@@ -7,6 +7,7 @@ use crate::args::extractor_attr::ExtractorAttr;
 use crate::codegen::responses::{declare_responses_enum, responses_enum_ident, responses_enum_name};
 use crate::codegen::route_info::declare_route_info;
 use crate::codegen::trait_checkers::declare_trait_checkers;
+use crate::codegen::trait_use::add_use_traits;
 use crate::codegen::utoipa::declare_utoipa_path_meta;
 use crate::syn_error;
 use crate::utils::error::syn_bail;
@@ -52,6 +53,8 @@ fn autoroute_path_internal2(
 
     #[cfg(feature = "tracing")]
     crate::codegen::tracing::add_inputs_tracing(&mut input);
+
+    add_use_traits(&mut input);
 
     let func = input.itemfn;
     let quoted = quote! {

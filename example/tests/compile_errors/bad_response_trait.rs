@@ -1,3 +1,5 @@
+#![allow(unused_imports)]
+
 use axum_autoroute::autoroute;
 use axum;
 use utoipa;
@@ -18,18 +20,6 @@ pub fn wrong_status_2() -> WrongStatus2Responses {
 #[autoroute(GET, path="/hello", responses=[(IM_A_TEAPOT, body=i32, description="hello")])]
 pub fn wrong_status_3() -> WrongStatus3Responses {
     WrongStatus3Responses::NotFound(12i32)
-}
-
-/// doc
-#[autoroute(GET, path="/hello", responses=[(IM_A_TEAPOT, body=i32, description="hello")])]
-pub fn missing_use_trait_1() -> MissingUseTrait1Responses {
-    12i32.into_im_a_teapot()
-}
-
-/// doc
-#[autoroute(GET, path="/hello", responses=[(IM_A_TEAPOT, body=i32, description="hello")])]
-pub fn missing_use_trait_2() -> MissingUseTrait2Responses {
-    i32::into_im_a_teapot(12i32)
 }
 
 /// doc
