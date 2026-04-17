@@ -1,0 +1,11 @@
+error[E0425]: cannot find type `UnknownType` in this scope
+ --> tests/compile_errors/04b_bad_body_response2.rs:7:54
+  |
+7 | #[autoroute(GET, path="/home", responses=[(200, body=UnknownType, description="desc")])]
+  |                                                      ^^^^^^^^^^^ not found in this scope
+
+error[E0425]: cannot find function, tuple struct or tuple variant `UnknownType` in this scope
+  --> tests/compile_errors/04b_bad_body_response2.rs:11:73
+   |
+11 | #[autoroute(GET, path="/home", responses=[(200, body=String, serializer=UnknownType, description="desc")])]
+   |                                                                         ^^^^^^^^^^^ not found in this scope
