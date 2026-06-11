@@ -82,7 +82,7 @@ macro_rules! assert_traces {
 pub(crate) use assert_traces;
 
 #[cfg(feature = "tracing")]
-pub fn check_traces(ref_filename: &str, lines: &Vec<String>) -> Result<(), String> {
+pub fn check_traces(ref_filename: &str, lines: &[String]) -> Result<(), String> {
     let content = lines
         .iter()
         .map(|s| strip_trace_datetime(s).to_string())
