@@ -83,14 +83,25 @@ fn check_func_return_type(input: &AutorouteInput) -> syn::Result<()> {
     let expected_name = responses_enum_name(input);
     let func_return = &input.itemfn.sig.output;
     let mut err_span = func_return.span();
+
     if let ReturnType::Type(_, box_type) = func_return {
         err_span = box_type.span();
-        if let Type::Path(path) = &**box_type
-            && let Some(ident) = path.path.get_ident()
-            && *ident == expected_name
-        {
-            return Ok(());
+        match &**box_type {
+            // named return type, check it matches
+            Type::Path(path) => {
+                if let Some(ident) = path.path.get_ident()
+                    && *ident == expected_name
+                {
+                    return Ok(());
+                }
+            }
+            // elided return type (_) is allowed
+            Type::Infer(_) => {
+                return Ok(());
+            }
+            // otherwise do nothing, an error will be raised
+            _ => (),
         }
     }
-    syn_bail!(err_span, "expecting return type `{expected_name}`")
+    syn_bail!(err_span, "expecting return type to be either `{expected_name}` or elided (`_`)")
 }

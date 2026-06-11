@@ -45,7 +45,8 @@ async fn my_route(
     Path(path): Path<PathParam>,     // path extraction
     Query(query): Query<QueryParam>, // query extraction
     Json(json): Json<JsonRequest>,   // json body extraction
-) -> MyRouteResponses {
+) -> MyRouteResponses // the response type can also be elided (`_`)
+{
     if path.id % 2 != 0 {
         // a response can be returned by using an into_... function corresponding to the http return code
         // (here `IntoBadRequest` which exposes the functions `into_bad_request` and `into_400`)
@@ -55,7 +56,7 @@ async fn my_route(
             id: path.id,
             text1: query.text1,
             text2: json.text2,
-        };        
+        };
         resp.into_200()
     }
 }

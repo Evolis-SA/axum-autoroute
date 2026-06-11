@@ -7,7 +7,8 @@ all-features = true
 yanked = "deny"
 unmaintained = "all"
 ignore = [
-    { id = "RUSTSEC-2024-0436", reason = "paste is unmaintained, but still used by utoipa-axum, it is only used for code generation through macro rules, it is probably not an issue that it is not maintained." }
+    { id = "RUSTSEC-2024-0436", reason = "paste is unmaintained, but still used by utoipa-axum, it is only used for code generation through macro rules, it is probably not an issue that it is not maintained. Issue opened: https://github.com/juhaku/utoipa/issues/1563" },
+    { id = "RUSTSEC-2026-0173", reason = "proc-macro-error2 is unmaintained, but is still used by axum-typed-multipart. Issue opened: https://github.com/murar8/axum_typed_multipart/issues/128" }
 ]
 
 [bans]
