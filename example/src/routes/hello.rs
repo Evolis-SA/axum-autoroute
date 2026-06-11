@@ -24,7 +24,7 @@ async fn hello_route() -> HelloRouteResponses {
         (IM_A_TEAPOT, body=String, serializer=NONE),
     ]
 )]
-async fn no_description() -> NoDescriptionResponses {
+async fn no_description() -> _ {
     "Hello World!".to_string().into_im_a_teapot()
 }
 
@@ -34,7 +34,7 @@ async fn no_description() -> NoDescriptionResponses {
         (IM_A_TEAPOT, body=String, serializer=NONE, description="Always says bonjour"),
     ]
 )]
-async fn bonjour_secret_route() -> BonjourSecretRouteResponses {
+async fn bonjour_secret_route() -> _ {
     "Bonjour World !".to_string().into_im_a_teapot()
 }
 
@@ -44,7 +44,7 @@ async fn bonjour_secret_route() -> BonjourSecretRouteResponses {
         (IM_A_TEAPOT, body=String, serializer=NONE, description="Always says bye"),
     ]
 )]
-async fn bye_secret_route() -> ByeSecretRouteResponses {
+async fn bye_secret_route() -> _ {
     "Bye World!".to_string().into_im_a_teapot()
 }
 
