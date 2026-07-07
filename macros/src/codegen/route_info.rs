@@ -14,7 +14,7 @@ pub(crate) fn declare_route_info(input: &AutorouteInput) -> proc_macro2::TokenSt
 
     quote_spanned! {path.span()=>
         #[allow(unused)]
-        #vis const #route_info: axum_autoroute::RouteInfo = axum_autoroute::RouteInfo::new(#method, #path);
+        #vis const #route_info: &axum_autoroute::RouteInfo = &axum_autoroute::RouteInfo::new(#method, #path);
     }
 }
 
