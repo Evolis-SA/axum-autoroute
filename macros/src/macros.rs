@@ -163,7 +163,7 @@ pub fn route_info(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
         ident: Ident::new(&route_info_name(&last_segment.ident.to_string()), path_span),
         arguments: PathArguments::None,
     };
-    quote! {&#path}.into()
+    quote! {#path}.into()
 }
 
 #[proc_macro]

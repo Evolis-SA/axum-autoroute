@@ -13,7 +13,9 @@ async fn hello_route() -> HelloRouteResponses {
 fn main() {
     // ok
     let _: &RouteInfo = route_info!(hello_route);
+    let _: &'static RouteInfo = route_info!(hello_route);
     let _: &[&RouteInfo] = routes_info!(hello_route);
+    let _: &[&'static RouteInfo] = routes_info!(hello_route);
 
     // failures
     let _: RouteInfo = route_info!(hello_route);
