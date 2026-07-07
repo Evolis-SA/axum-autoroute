@@ -163,7 +163,7 @@ pub fn route_info(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
         ident: Ident::new(&route_info_name(&last_segment.ident.to_string()), path_span),
         arguments: PathArguments::None,
     };
-    quote! {#path}.into()
+    quote! {&#path}.into()
 }
 
 #[proc_macro]
@@ -175,7 +175,7 @@ pub fn routes_info(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
         .into_iter()
         .map(|p| quote_spanned! {p.span()=> axum_autoroute::route_info!(#p)})
         .collect::<Vec<_>>();
-    quote! { [ #(#calls),* ] }.into()
+    quote! { &[ #(#calls),* ] }.into()
 }
 
 /// Returns an [`UtoipaMethodRouter`](utoipa_axum::router::UtoipaMethodRouter) from the name of an handler.
