@@ -46,7 +46,7 @@ error: autoroute macro failed: expected `=`
 24 | #[autoroute(GET, path="/home", responses=[(200, body)])]
    |                                                     ^
 
-error: autoroute macro failed: unexpected end of input, expected one of: `for`, parentheses, `fn`, `unsafe`, `extern`, identifier, `::`, `<`, `dyn`, square brackets, `*`, `&`, `!`, `impl`, `_`, lifetime
+error: autoroute macro failed: unexpected end of input, expected one of: `for`, parentheses, `unsafe`, `fn`, `extern`, identifier, `::`, `<`, `dyn`, square brackets, `*`, `&`, `!`, `impl`, `_`, lifetime
   --> tests/compile_errors/04_bad_responses.rs:27:54
    |
 27 | #[autoroute(GET, path="/home", responses=[(200, body=)])]
