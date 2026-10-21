@@ -10,7 +10,7 @@ for opt_feature in ${opt_features[@]}; do
     echo "################################################################################"
     echo "## Check, $opt_feature"
     echo "################################################################################"
-    RUSTFLAGS="-D warnings" cargo check $opt_feature
+    RUSTFLAGS="-D warnings" cargo check --workspace $opt_feature
     echo
 
     echo "################################################################################"

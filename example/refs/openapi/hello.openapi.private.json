@@ -41,7 +41,6 @@
         "operationId": "no_description",
         "responses": {
           "418": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {

@@ -19,7 +19,6 @@
         "operationId": "custom_body_extractor_1",
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -50,7 +49,6 @@
         },
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -71,7 +69,6 @@
         "operationId": "custom_body_extractor_3",
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -107,7 +104,6 @@
         },
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -128,7 +124,6 @@
         "operationId": "custom_query_extractor_1",
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -160,7 +155,6 @@
         ],
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -181,7 +175,6 @@
         "operationId": "custom_query_extractor_3",
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -213,7 +206,6 @@
         ],
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {
@@ -234,7 +226,6 @@
         "operationId": "custom_query_extractor_5",
         "responses": {
           "200": {
-            "description": "",
             "content": {
               "text/plain": {
                 "schema": {

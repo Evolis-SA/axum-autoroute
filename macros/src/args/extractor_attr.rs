@@ -178,8 +178,8 @@ impl ExtractorAttr {
 
     /// Remove extractor attributes from the ItemFn signature
     pub(crate) fn remove_extractor_attrs(input: &mut AutorouteInput) {
-        for mut fnarg in &mut input.itemfn.sig.inputs {
-            if let FnArg::Typed(fnarg) = &mut fnarg {
+        for fnarg in &mut input.itemfn.sig.inputs {
+            if let FnArg::Typed(fnarg) = fnarg {
                 fnarg.attrs = fnarg
                     .attrs
                     .iter()

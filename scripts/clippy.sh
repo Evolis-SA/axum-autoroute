@@ -12,5 +12,5 @@ CLIPPY_CARGO=( \
     -A"clippy::multiple_crate_versions"
 )
 
-echo "Running: clippy $@ -- --no-deps -Dwarnings \${CLIPPY_PEDANTIC[*]} \${CLIPPY_CARGO[*]}"
-cargo clippy "$@" -- --no-deps -Dwarnings ${CLIPPY_PEDANTIC[*]} ${CLIPPY_CARGO[*]}
+echo "Running: clippy --workspace $@ -- --no-deps -Dwarnings \${CLIPPY_PEDANTIC[*]} \${CLIPPY_CARGO[*]}"
+cargo clippy --workspace "$@" -- --no-deps -Dwarnings ${CLIPPY_PEDANTIC[*]} ${CLIPPY_CARGO[*]}
