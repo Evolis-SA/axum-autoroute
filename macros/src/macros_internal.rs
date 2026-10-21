@@ -103,5 +103,8 @@ fn check_func_return_type(input: &AutorouteInput) -> syn::Result<()> {
             _ => (),
         }
     }
-    syn_bail!(err_span, "expecting return type to be either `{expected_name}` or elided (`_`)")
+    syn_bail!(
+        err_span,
+        "expecting return type to be either `{expected_name}` or elided (`_`)"
+    )
 }
