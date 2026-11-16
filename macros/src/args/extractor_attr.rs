@@ -120,6 +120,7 @@ impl Parse for ExtractorAttr {
 
 impl ExtractorAttr {
     #[cfg_attr(not(feature = "unstable_extractor_attr"), expect(clippy::unused_self))]
+    #[expect(clippy::needless_bool)]
     pub(crate) fn is_parts_extractor(&self) -> bool {
         #[cfg(feature = "unstable_extractor_attr")]
         if matches!(self.variant, ExtractorAttrVariant::BodyExtractor { .. }) {

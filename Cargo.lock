@@ -92,7 +92,7 @@ dependencies = [
 
 [[package]]
 name = "axum-autoroute"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "axum",
  "axum-autoroute-macros",
@@ -106,7 +106,7 @@ dependencies = [
 
 [[package]]
 name = "axum-autoroute-example"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "axum",
  "axum-autoroute",
@@ -131,7 +131,7 @@ dependencies = [
 
 [[package]]
 name = "axum-autoroute-macros"
-version = "0.2.3"
+version = "0.2.4"
 dependencies = [
  "axum",
  "convert_case",
