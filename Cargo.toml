@@ -1,10 +1,8 @@
 [workspace.package]
-version = "0.2.3"
+version = "0.2.4"
 edition = "2024"
 rust-version = "1.88"
 license = "Apache-2.0"
-license-file = "LICENSE"
-homepage = "https://github.com/Evolis-SA/axum-autoroute"
 repository = "https://github.com/Evolis-SA/axum-autoroute"
 categories = ["web-programming::http-server"]
 keywords = ["rest-api", "openapi", "http", "axum", "utoipa"]
@@ -17,8 +15,8 @@ members = ["macros", "lib", "example"]
 order = ["macros", "lib"]
 
 [workspace.dependencies]
-axum-autoroute = { version="0.2.3", path = "./lib" }
-axum-autoroute-macros = { version="0.2.3", path = "./macros" }
+axum-autoroute = { version="0.2.4", path = "./lib" }
+axum-autoroute-macros = { version="0.2.4", path = "./macros" }
 
 axum = { version = "0.8.4" }
 utoipa = { version = "6.0.0", features = ["axum_extras"] }

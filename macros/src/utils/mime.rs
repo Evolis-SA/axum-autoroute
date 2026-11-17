@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-#[expect(clippy::wildcard_imports)]
+#[allow(clippy::wildcard_imports)]
 use mime::*;
 use syn::parse::ParseStream;
 use syn::{Ident, LitStr};
