@@ -22,7 +22,7 @@ tower.workspace = true
 serde.workspace = true
 mime.workspace = true
 
-axum_typed_multipart = "0.16.2"
+axum_typed_multipart = { version = "0.16.2", default-features = false }
 axum-extra = { version = "0.12.2", features = [
     "cookie",
     "attachment",
